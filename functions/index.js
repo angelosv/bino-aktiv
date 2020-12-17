@@ -25,21 +25,7 @@ admin.initializeApp({
         "client_x509_cert_url": config.service.client_x509_cert_url
     })
 });
-/* 
 
-{
-        "type": "service_account",
-        "project_id": "vibrant-fabric-275712",
-        "private_key_id": "46935eabcad19c76c751c73d958d618cc441c540",
-        "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCqckDeNWS7dJPV\nEWDdPZx3hd8TaMgdvGE7zx/CO5V/x9EJQR37CjCEpRAlyfsuAs5B28gyrIzqYJOl\nsH3R3JniWBDvDiziBvqGGLJ3lfWrPgPjVC1X0cVb/rsirlzHPf1Db02JaTIFEdXr\nq1L8IAjfB/lKwG32nP7gah1yWguk0C2T3hjqbMgPE/9v77pGb/7spESiCwraVvlt\noq6LTO7jKj7vniU8UuhxWjh6QP+8jm1RvidJI94jvl5/GV1Z1taML9PxlRpQKr2l\nLzOPLArnJgFiaBUdrdVzzACUlF9gunqA4qYND4hEeBMOpPcxFUYuYvhHZHRFa67E\npdppBWQxAgMBAAECggEAAUdSYoBYyTm0hrGGzh4RU4m07NC5SJTST2gsOzEme9MI\nR8cd5hVTXBlfY8MuP8/8U1zmVW/7LiJrlR978CQ1INArj1mGP2tRO4qJozFEKqTQ\nU2cdIHalwf0JExdnAYUe5l+6P4zDF+vkdIxAVv0YB/FHvtZu9L3EgTM2lZYklnfI\nq4MpKbw8i8NLyROhBPjI6hewUuUBV2Nz8XXc9ntTsg843BhoMO8EWW1uFgpEdpov\nm9sk6Y+oaJpSdfON1gbvcFx/mWKxZmEH/kZtd5PEotCFiT1a7de1oNo5JHSTFByw\na9lKk8DzIbjqqe/3AKcE91VMBcayCWD2AuTeK+ue6QKBgQDmnHwYzsL2BSVNYhVH\nP0oYK81x/je/YvYYBms+ztdlbs61GACc0jaR7l7lOBydvdo0t9INMxEKqbgKqv/b\nkDFFuPvBYSZmH7qG/KF+evZoEH4EaBHf5sDtYmACNN12u7jCTCSAlcxPWrKJDl50\nX7oktACtyX4HquZuR3Ohhq6jeQKBgQC9NhZ4MEjBLkUcN6+R5K/jCrpbWeghiddN\nXjRqzhPwfIlncIDwclV4UooPpSfUr81NFTOgZAPe/fkEFKlWQ+AI08G6wLUc8nFz\nnmAl8WTYfrPIP7bowrtz+tkFxCp9zKMw7b+ulm1D45AYGqKUdhaHa8wB8XOz1rrx\ni4ONBqMgeQKBgC1E8LNp+ymSTwVGyMiIqwHdr2G+NrFSOt7ye6EDt5LI0rkH8i7W\nsTGqamRyxGNOvoP0xb4jlSfTszYc5Ubzokh+jKUkbgZEGjifZRBQEQjSm/o/d6rN\nQHgZBKHKQOMq7JTvn4bCYS3+rudqs64CkKbd0vhKgnv812k0i4Vcy/F5AoGAZXYG\nkIabzPOJ3brCrAIsixwqmGfawXlP+c3lX8yIBrJRYCWFDurQiEgCfqc6d6OZ/Ja8\n62oWZVJdYOHPeFHHZhRfU0yZEh+z1KL9vfr279zpfR0lcSVTLbs6+wuZGYJNlCQ5\nYF6L0xbJIxPNUL0OEaotaHFYcPxZnMMKVOpVOUkCgYAlgWvlcBOvImoY3M/wIQfF\nrYzx0NXRGDt63TnIx9smjyT2r72wcIRE2MjN+X7V0ElPx3ITifMIsyDSq+6f39q3\njLgUnhOiJaJWKzLxd38JbsCRmlK18OlDF4nJYO3jmO94c5ii1CCYVV60kAw5l0N7\ntSgVqHgpqJe3IF6osnfQEQ==\n-----END PRIVATE KEY-----\n",
-        "client_email": "firebase-adminsdk-wpoad@vibrant-fabric-275712.iam.gserviceaccount.com",
-        "client_id": "108014736419476547018",
-        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-        "token_uri": "https://oauth2.googleapis.com/token",
-        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-        "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-wpoad%40vibrant-fabric-275712.iam.gserviceaccount.com"
-    }
-*/
 const db = admin.firestore()
 
 
