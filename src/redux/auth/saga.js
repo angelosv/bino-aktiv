@@ -26,6 +26,18 @@ import { changePasswordError, changePasswordSucces } from './actions';
 
 functions.useEmulator("localhost", 5001);
 
+
+auth.onAuthStateChanged(function (user) {
+    if (user) {
+        // User is signed in.
+    } else {
+        localStorage.removeItem('user_id');
+        localStorage.removeItem('email');
+
+    }
+});
+
+
 function* loginUserFirebase({ payload }) {
     console.log('entrando a login', payload)
     const { email, password } = payload

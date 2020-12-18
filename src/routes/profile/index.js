@@ -41,7 +41,7 @@ const Profile = () => {
                 <Container>
                     <Row>
                         <Col>
-                            <h1>Add User</h1>
+                            <h1>Profile</h1>
                             <form onSubmit={handleSubmit(onSubmit)} className="login-form">
 
                                 <label>Fornavn</label>
