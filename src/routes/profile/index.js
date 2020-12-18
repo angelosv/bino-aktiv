@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import { compose } from 'redux';
 import { withRouter, Redirect } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from 'react-loader-spinner'
 import { changePassword, updateUser } from '../../redux/actions';
 import Layout from '../../layout';
 import Button from '../../components/Button';
@@ -18,6 +19,8 @@ const Profile = () => {
         reset();
     };
     const user = useSelector(state => state.auth.user);
+    const loading = useSelector(state => state.auth.loading);
+
     const { name, surname, team, email, gender } = user
     const teamOptions = [
         1, 2, 3, 4
@@ -27,6 +30,13 @@ const Profile = () => {
     ]
     return (
         <Layout>
+            {loading ? <Loader className="loader"
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+
+            /> : ''}
             <Styled>
                 <Container>
                     <Row>

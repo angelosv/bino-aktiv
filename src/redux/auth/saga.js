@@ -24,6 +24,8 @@ import {
 } from '../actions'
 import { changePasswordError, changePasswordSucces } from './actions';
 
+functions.useEmulator("localhost", 5001);
+
 function* loginUserFirebase({ payload }) {
     console.log('entrando a login', payload)
     const { email, password } = payload
@@ -87,8 +89,10 @@ function* reigisterUserFirebase(data) {
             gender: gender,
             team: team
         })
-        console.log(userdata, 'USERDATA')
-        yield put(loginUserSucces(userdata))
+        console.log(userdata, 'USERDATA');
+        localStorage.removeItem('user_id');
+        localStorage.removeItem('email');
+        yield put(logOutUserSucces());
     } catch (error) {
         console.log(error)
         yield put(registerUserError(error.message))

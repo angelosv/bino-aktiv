@@ -37,6 +37,8 @@ const App = () => {
   const dispatch = useDispatch();
   const loggedUser = localStorage.getItem('user_id');
   const authed = useSelector(state => state.auth.authId)
+  const loading = useSelector(state => state.auth.loading);
+
   useEffect(() => {
     console.log(loggedUser)
     if (loggedUser) {
@@ -49,7 +51,6 @@ const App = () => {
 
 
     <BrowserRouter>
-
       <Switch>
         <Route path={"/"} component={Home} exact />
         <PrivateRoute authed={authed} path={"/statistikk"} component={Statistikk} exact />

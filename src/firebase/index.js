@@ -14,11 +14,13 @@ const firebaseConfig = {
     measurementId: "G-NQ2W5T1HXQ"
 };
 
+
+
 firebase.initializeApp(firebaseConfig)
 firebase.analytics();
-firebase.auth()
-firebase.functions();
-const auth = firebase.auth()
+firebase.auth().useEmulator('http://localhost:9099/')
+firebase.functions().useEmulator("localhost", 5001);;
+const auth = firebase.auth();
 const functions = firebase.functions()
 export {
     auth,

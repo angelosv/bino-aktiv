@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { connect } from 'react-redux';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from 'react-loader-spinner'
 
 import { Container, Row, Col } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
@@ -16,10 +18,22 @@ const Aktivitet = () => {
     const dispatch = useDispatch();
     const [startDate, setStartDate] = useState(new Date());
     const user = useSelector(state => state.auth.user);
+    const loading = useSelector(state => state.activities.loading);
+
     const { team } = user
 
     return (
+
         <Layout>
+
+            {loading ? <Loader className="loader"
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+
+            /> : ''}
+
             <Styled>
                 <Container>
                     <Row>

@@ -28,6 +28,20 @@ const Layout = ({ children }) => (
 export default Layout;
 
 const Styled = styled.div`
+.loader{
+    background-color:rgb(0 0 0 / 10%);
+    left: 0;
+    top: 0;
+    width: 101%;
+    height: 100%;
+    position: absolute;
+    z-index:10;
+    svg{
+        position:absolute;
+        left:50%;
+        top:50%;
+    }
+}
     white-space: pre-wrap;
    // max-width: 1440px;
     margin: 0 auto;

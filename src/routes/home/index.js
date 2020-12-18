@@ -8,11 +8,20 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import Layout from '../../layout';
 import Login from './components/Login';
-
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from 'react-loader-spinner'
 const Home = ({ history, state }) => {
+    const loading = useSelector(state => state.auth.loading);
 
     return (
         <Layout>
+            {loading ? <Loader className="loader"
+                type="Puff"
+                color="#00BFFF"
+                height={100}
+                width={100}
+
+            /> : ''}
             {useSelector(state => state.auth.authId) !== null ? <Redirect to={'/aktivitet'}></Redirect> : ''}
             <Styled>
                 <Container>
