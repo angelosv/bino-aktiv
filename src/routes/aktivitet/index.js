@@ -13,12 +13,17 @@ import "react-datepicker/dist/react-datepicker.css";
 import { addActivity } from '../../redux/actions';
 import Layout from '../../layout';
 import Button from '../../components/Button';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Aktivitet = () => {
     const dispatch = useDispatch();
     const [startDate, setStartDate] = useState(new Date());
     const user = useSelector(state => state.auth.user);
     const loading = useSelector(state => state.activities.loading);
+    const notify = () => toast.success("Aktivitet lagret!", {
+        autoClose: 1000,
+        position: "top-center",
+    });
 
     const { team } = user
 
@@ -27,7 +32,7 @@ const Aktivitet = () => {
         <Layout>
 
             {loading ? <Loader className="loader"
-                type="Puff"
+                type="Rings"
                 color="#00BFFF"
                 height={100}
                 width={100}

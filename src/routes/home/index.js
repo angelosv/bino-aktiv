@@ -16,7 +16,7 @@ const Home = ({ history, state }) => {
     return (
         <Layout>
             {loading ? <Loader className="loader"
-                type="Puff"
+                type="Rings"
                 color="#00BFFF"
                 height={100}
                 width={100}

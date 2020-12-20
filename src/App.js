@@ -49,7 +49,6 @@ const App = () => {
   })
   return (<>
 
-
     <BrowserRouter>
       <Switch>
         <Route path={"/"} component={Home} exact />

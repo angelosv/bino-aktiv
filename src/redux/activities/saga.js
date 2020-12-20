@@ -9,8 +9,11 @@ import { auth, functions } from '../../firebase';
 import {
     addActivitySucces,
     addActivityError,
+    dialogInfoOn
+
 } from '../actions'
 import { getAllUsersActivitiesError, getAllUsersActivitiesSucces, getUserActivitiesError, getUserActivitiesSucces } from './actions';
+import { notifySucces, notifyError } from '../../components/Dialog/'
 
 function* addActivity({ payload }) {
     console.log('payload:', payload)
@@ -26,12 +29,17 @@ function* addActivity({ payload }) {
         })
         console.log(res)
         yield put(addActivitySucces(res))
+        yield notifySucces("Aktivitet lagret!")
+
     } catch (error) {
         yield put(addActivityError(error.message))
+        yield notifyError("Ops!")
+
     }
 }
 
 function* getUserActivities({ payload }) {
+
     try {
         const getUserActivities = functions.httpsCallable('getUserActivities');
         const res = yield getUserActivities()

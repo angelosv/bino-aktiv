@@ -28,8 +28,14 @@ const Layout = ({ children }) => (
 export default Layout;
 
 const Styled = styled.div`
+.toast-dialog-container {
+  z-index: 9999;
+  position: absolute;
+  left: 1%;
+  top: 1%;
+}
 .loader{
-    background-color:rgb(0 0 0 / 10%);
+   // background-color:rgb(0 0 0 / 10%);
     left: 0;
     top: 0;
     width: 101%;

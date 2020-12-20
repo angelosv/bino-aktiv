@@ -23,6 +23,8 @@ import {
     dialogInfoOn
 } from '../actions'
 import { changePasswordError, changePasswordSucces } from './actions';
+import { notifySucces, notifyError } from '../../components/Dialog/'
+
 
 functions.useEmulator("localhost", 5001);
 
@@ -53,6 +55,8 @@ function* loginUserFirebase({ payload }) {
             console.log(userData, 'ESTO ES USERDATA')
 
             yield put(getUserDataSucces(userData))
+            put(notifySucces('Velkommen!'))
+
         } catch (error) {
             console.log(error.message)
         }
@@ -60,6 +64,7 @@ function* loginUserFirebase({ payload }) {
     catch (error) {
         console.log(error)
         yield put(loginUserError(error.message))
+        put(notifyError(error.message))
     }
 }
 
@@ -77,7 +82,10 @@ function* userUpdate(data) {
             gender: gender,
             team: team
         })
+        put(notifySucces('Profil din ble updatert!'))
+        put(getUserData())
     } catch (error) {
+        put(notifyError(error.message))
 
     }
 
@@ -105,17 +113,17 @@ function* reigisterUserFirebase(data) {
         localStorage.removeItem('user_id');
         localStorage.removeItem('email');
         yield put(logOutUserSucces());
+        put(notifySucces('Bruker opprettet!'))
+
     } catch (error) {
         console.log(error)
         yield put(registerUserError(error.message))
+        put(notifyError(error.message))
 
     }
 }
 
 function* getUserData() {
-    yield put(dialogInfoOn('sss'));
-
-    console.log('   getting user datas')
 
     yield put(loginUserSucces(localStorage.getItem('user_id'), localStorage.getItem('email')))
     try {
@@ -125,6 +133,7 @@ function* getUserData() {
         yield put(getUserDataSucces(userData))
     } catch (error) {
         console.log(error.message)
+
     }
 }
 

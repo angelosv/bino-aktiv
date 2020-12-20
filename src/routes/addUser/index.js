@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import { useForm } from "react-hook-form";
 import { withRouter, Redirect } from 'react-router-dom';
 import { compose } from 'redux';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { registerUser } from '../../redux/actions';
 import Layout from '../../layout';
@@ -13,9 +15,13 @@ import Button from '../../components/Button';
 const AddUser = () => {
     const dispatch = useDispatch();
     const { register, handleSubmit, errors, reset } = useForm();
-
+    const notify = () => toast.success("Ok!", {
+        autoClose: 1000,
+        position: "top-center",
+    });
     const onSubmit = data => {
         dispatch(registerUser(data));
+        notify();
         reset();
     };
 
