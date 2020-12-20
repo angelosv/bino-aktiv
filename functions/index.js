@@ -3,11 +3,11 @@ const admin = require('firebase-admin');
 const cors = require('cors')({ origin: true });
 
 //Local->
-let config = require('../env.json');
+//let config = require('../env.json');
 
 
 //Prod->
-//config = functions.config()
+config = functions.config()
 
 
 

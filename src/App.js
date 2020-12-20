@@ -23,7 +23,7 @@ const PrivateRoute = ({ component: Component, authed, ...rest }) => (
   < Route {...rest} render={(props) => (
 
     authed !== null
-      ? <Component {...props} />
+      ? <Component {...props} loggedUser={authed} />
       : <Redirect to={{
         pathname: '/',
         state: { from: props.location }
@@ -39,24 +39,24 @@ const App = () => {
   const authed = useSelector(state => state.auth.authId)
   const loading = useSelector(state => state.auth.loading);
 
-  useEffect(() => {
-    console.log(loggedUser)
-    if (loggedUser) {
-      dispatch(getUserData())
-    } else {
-
-    }
-  })
+  /*  useEffect(() => {
+      console.log(loggedUser)
+      if (loggedUser) {
+        dispatch(getUserData())
+      } else {
+  
+      }
+    })*/
   return (<>
 
     <BrowserRouter>
       <Switch>
         <Route path={"/"} component={Home} exact />
-        <PrivateRoute authed={authed} path={"/statistikk"} component={Statistikk} exact />
-        <PrivateRoute authed={authed} path={"/aktivitet"} component={Aktivitet} exact />
-        <PrivateRoute authed={authed} path={"/teams"} component={Teams} exact />
+        <PrivateRoute authed={loggedUser} path={"/statistikk"} component={Statistikk} exact />
+        <PrivateRoute authed={loggedUser} path={"/aktivitet"} component={Aktivitet} exact />
+        <PrivateRoute authed={loggedUser} path={"/teams"} component={Teams} exact />
         <Route path={"/tips"} component={Tips} exact />
-        <PrivateRoute authed={authed} path={"/profile"} component={Profile} exact />
+        <PrivateRoute authed={loggedUser} path={"/profile"} component={Profile} exact />
         <Route path={"/add-user"} component={AddUser} exact />
       </Switch>
     </BrowserRouter>

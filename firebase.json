@@ -4,6 +4,7 @@
     "indexes": "firestore.indexes.json"
   },
   "hosting": {
+    "site": "bino-aktiv-live",
     "public": "build",
     "ignore": [
       "firebase.json",

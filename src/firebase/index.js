@@ -5,7 +5,7 @@ import 'firebase/functions';
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBKjGdNpnW9Hxzr4JIc5TgkCc1YUQaTFCM",
+    apiKey: "AIzaSyBK131G6WtavnRyNFaVkukporVyLlFPm7o",
     authDomain: "vibrant-fabric-275712.firebaseapp.com",
     projectId: "vibrant-fabric-275712",
     storageBucket: "vibrant-fabric-275712.appspot.com",
@@ -18,8 +18,8 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig)
 firebase.analytics();
-firebase.auth().useEmulator('http://localhost:9099/')
-firebase.functions().useEmulator("localhost", 5001);;
+firebase.auth()//.useEmulator('http://localhost:9099/')
+firebase.functions()//.useEmulator("localhost", 5001);;
 const auth = firebase.auth();
 const functions = firebase.functions()
 export {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, Row, Col } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
@@ -7,17 +7,24 @@ import { withRouter, Redirect } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from 'react-loader-spinner'
-import { changePassword, updateUser } from '../../redux/actions';
+import { changePassword, updateUser, getUserData } from '../../redux/actions';
 import Layout from '../../layout';
 import Button from '../../components/Button';
 
-const Profile = () => {
+const Profile = (loggedUser) => {
     const dispatch = useDispatch();
     const { register, handleSubmit, errors, reset } = useForm();
     const onSubmit = data => {
         dispatch(updateUser(data));
-        reset();
+        dispatch(getUserData())
+
     };
+    useEffect(() => {
+        dispatch(getUserData())
+    }, [])
+
+
+
     const user = useSelector(state => state.auth.user);
     const loading = useSelector(state => state.auth.loading);
 

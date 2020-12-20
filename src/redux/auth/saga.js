@@ -26,7 +26,7 @@ import { changePasswordError, changePasswordSucces } from './actions';
 import { notifySucces, notifyError } from '../../components/Dialog/'
 
 
-functions.useEmulator("localhost", 5001);
+//functions.useEmulator("localhost", 5001);
 
 
 auth.onAuthStateChanged(function (user) {
@@ -83,9 +83,10 @@ function* userUpdate(data) {
             team: team
         })
         put(notifySucces('Profil din ble updatert!'))
-        put(getUserData())
+        //put(getUserData())
     } catch (error) {
         put(notifyError(error.message))
+        window.location.href = '/profile';
 
     }
 
@@ -129,16 +130,13 @@ function* getUserData() {
     try {
         const getUserdata = functions.httpsCallable('getUser');
         const userData = yield getUserdata();
-        console.log(userData, 'ESTO ES USERDATA')
         yield put(getUserDataSucces(userData))
     } catch (error) {
         console.log(error.message)
-
     }
 }
 
 function* logOutUserFirebase() {
-    console.log('estoy en logout')
     yield auth.signOut();
     localStorage.removeItem('user_id');
     localStorage.removeItem('email');
@@ -147,7 +145,6 @@ function* logOutUserFirebase() {
 }
 
 function* deleteUserFirebase({ payload }) {
-    console.log('delete user')
     auth.deleteUserFirebase();
     yield put(deleteUserSucces())
 }
