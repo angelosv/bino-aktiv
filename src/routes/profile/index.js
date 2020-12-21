@@ -23,8 +23,6 @@ const Profile = (loggedUser) => {
         dispatch(getUserData())
     }, [])
 
-
-
     const user = useSelector(state => state.auth.user);
     const loading = useSelector(state => state.auth.loading);
 
@@ -82,13 +80,13 @@ const Profile = (loggedUser) => {
                                 <label>Team</label>
                                 <select name="team" ref={register({ required: true })}>
                                     {teamOptions.map(option => {
-                                        return <option value={option} selected={team === option ? 'selected' : ''}>{option}</option>
+                                        return <option value={option} selected={parseInt(team) === option ? 'selected' : ''}>{option}</option>
 
                                     })}
 
                                 </select>
 
-                                <Button type="submit">Update User</Button>
+                                <Button type="submit">Lagre</Button>
                             </form>
                         </Col>
                     </Row>
@@ -96,7 +94,7 @@ const Profile = (loggedUser) => {
                 <Container>
                     <Row>
                         <Col>
-                            <Button action={() => dispatch(changePassword())}>Reset Password</Button>
+                            <Button action={() => dispatch(changePassword())}>Tilbakestille Passord</Button>
                         </Col>
                     </Row>
                 </Container>
@@ -121,5 +119,8 @@ const Styled = styled.div`
     }
     .span-pass {
         color: #CDCDCD;
+    }
+    button {
+        margin-top: 35px;
     }
 `

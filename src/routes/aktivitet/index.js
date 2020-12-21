@@ -25,7 +25,7 @@ const Aktivitet = () => {
         position: "top-center",
     });
 
-    const { team } = user
+    const { team } = user;
 
     return (
 
@@ -52,8 +52,10 @@ const Aktivitet = () => {
                                     duration: 3,
                                 }}
                                 onSubmit={(form) => {
+                                    const durationNumber = parseInt(form.duration);
                                     form.date = startDate.toString();
                                     form.team = parseInt(team);
+                                    form.duration = durationNumber;
                                     dispatch(addActivity(form));
                                 }}
                             >

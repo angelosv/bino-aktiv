@@ -10,6 +10,7 @@ const styledTheme = {
     primaryColor: '#58C0B5',
     secondaryColor: '#EF374D',
     textColor: '#444444',
+    greyBackground: '#EFEFEF',
 }
 
 const Layout = ({ children }) => (
@@ -28,32 +29,35 @@ const Layout = ({ children }) => (
 export default Layout;
 
 const Styled = styled.div`
-.toast-dialog-container {
-  z-index: 9999;
-  position: absolute;
-  left: 1%;
-  top: 1%;
-}
-.loader{
-   // background-color:rgb(0 0 0 / 10%);
-    left: 0;
-    top: 0;
-    width: 101%;
-    height: 100%;
+    .toast-dialog-container {
+    z-index: 9999;
     position: absolute;
-    z-index:10;
-    svg{
-        position:absolute;
-        left:50%;
-        top:50%;
+    left: 1%;
+    top: 1%;
     }
-}
+    .loader{
+    // background-color:rgb(0 0 0 / 10%);
+        left: 0;
+        top: 0;
+        width: 101%;
+        height: 100%;
+        position: absolute;
+        z-index:10;
+        svg{
+            position:absolute;
+            left:50%;
+            top:50%;
+        }
+    }
     white-space: pre-wrap;
    // max-width: 1440px;
     margin: 0 auto;
     .content-container {
-        max-width: 900px;
+        max-width: 950px;
         margin: 0 auto;
+        @media only screen and (min-width: 1600px) {
+            max-width: 1200px;
+        }
     }
     h1,h2,h3,h4,h5,h6 {
         margin-top: 0px;
@@ -71,6 +75,9 @@ const Styled = styled.div`
         line-height: 1.5;
         margin-top: 0px;
         color: ${({ theme }) => theme.textColor};
+    }
+    a {
+        text-decoration: none;
     }
     input, select {
         display: block;
@@ -125,6 +132,9 @@ const Styled = styled.div`
     .c-red {
         color: ${({ theme }) => theme.secondaryColor};
     }
+    .c-grey {
+        color: ${({ theme }) => theme.greyBackground};
+    }
     @media only screen and (max-width: 767px) {
         .no-display-under-767 {
             display: none !important;
@@ -139,6 +149,9 @@ const Styled = styled.div`
         }
         input {
             font-size: 18px;
+        }
+        .no-display-xs {
+            display: none !important;
         }
     }
 `
