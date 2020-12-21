@@ -25,8 +25,9 @@ const Profile = (loggedUser) => {
     }, [])
 
     const user = useSelector(state => state.auth.user);
-
-    const { name, surname, team, email, gender } = user
+    const email = localStorage.getItem('email');
+    console.log('EMAIL->___>', email)
+    const { name, surname, team, gender } = user
     const teamOptions = [
         1, 2, 3, 4
     ]
@@ -94,7 +95,7 @@ const Profile = (loggedUser) => {
                 <Container>
                     <Row>
                         <Col>
-                            <Button action={() => dispatch(changePassword())}>Tilbakestille Passord</Button>
+                            <Button action={() => dispatch(changePassword({ email }))}>Tilbakestille Passord</Button>
                             <span className="reset-message">Hvis du tilbakestiller passordet, kreves pålogging på nytt</span>
                         </Col>
                     </Row>

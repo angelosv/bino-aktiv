@@ -10,7 +10,7 @@ import Button from '../../../components/Button';
 const Login = () => {
     const dispatch = useDispatch();
     const { register, handleSubmit, errors } = useForm();
-    const onSubmit = data => dispatch(loginUser(data, null, 2));
+    const onSubmit = data => dispatch(changePassword(data));
 
     return (
         <Styled>
@@ -25,24 +25,11 @@ const Login = () => {
                 />
                 {errors.email && <span className="input-error-text">Vennligst sjekk dette feltet</span>}
                 <span>Oppgi en gyldig e-mail-adresse</span>
-                <input
-                    name="password"
-                    type="password"
-                    autoComplete="new-password"
-                    placeholder="Password"
-                    ref={register({ required: true, minLength: 8 })}
-                    className={errors.password && 'input-error-field'}
-                />
-                {errors.password && <span className="input-error-text">Vennligst sjekk dette feltet</span>}
-                <span>Passordet må inneholde minst 8 tegn</span>
-                <Button type="submit">Logg inn</Button>
+
+                <Button type="submit">Reset</Button>
             </form>
-            <button
-                className="forgot-password"
-                onClick={() => dispatch(changePassword())}
-            >
-                <Link to={'/recovery'}>Glemt passordet ditt?</Link>
-            </button>
+
+            <Link to={'/'}>Tilbake til logg-in</Link>
         </Styled>
     );
 }

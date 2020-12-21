@@ -4,16 +4,15 @@ import { registerUser, deleteUser, loginUser, addActivity, logOutUser, getUserAc
 import {
   Redirect, Route, Switch, BrowserRouter, browserHistory
 } from 'react-router-dom';
-import Home from './routes/home'
-import Statistikk from './routes/statistikk'
-import Aktivitet from './routes/aktivitet'
-import Teams from './routes/teams'
-import Tips from './routes/tips'
-import Profile from './routes/profile'
-import AddUser from './routes/addUser'
-import { auth } from './firebase'
+import Home from './routes/home';
+import Statistikk from './routes/statistikk';
+import Aktivitet from './routes/aktivitet';
+import Teams from './routes/teams';
+import Tips from './routes/tips';
+import Profile from './routes/profile';
+import AddUser from './routes/addUser';
 import createHistory from 'history/createBrowserHistory';
-import Dialog from './components/Dialog';
+import Recovery from './routes/recovery';
 
 const history = createHistory();
 export { history };
@@ -56,6 +55,7 @@ const App = () => {
         <PrivateRoute authed={loggedUser} path={"/aktivitet"} component={Aktivitet} exact />
         <PrivateRoute authed={loggedUser} path={"/teams"} component={Teams} exact />
         <Route path={"/tips"} component={Tips} exact />
+        <Route path={"/recovery"} component={Recovery} exact />
         <PrivateRoute authed={loggedUser} path={"/profile"} component={Profile} exact />
         <Route path={"/add-user"} component={AddUser} exact />
       </Switch>

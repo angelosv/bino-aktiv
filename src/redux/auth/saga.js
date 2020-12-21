@@ -20,9 +20,10 @@ import {
     logOutUserSucces,
     getUserDataSucces,
     getUserDataError,
-    dialogInfoOn
+    dialogInfoOn,
+    changePasswordError,
+    changePasswordSucces
 } from '../actions'
-import { changePasswordError, changePasswordSucces } from './actions';
 import { notifySucces, notifyError } from '../../components/Dialog/'
 
 
@@ -149,16 +150,24 @@ function* deleteUserFirebase({ payload }) {
     yield put(deleteUserSucces())
 }
 
-function* changePassword() {
-    const user = auth.currentUser;
-    const email = user.email;
+function* changePassword({ payload }) {
+
+    //const email = user.email;
+    console.log('en change pass', payload)
+    const { email } = payload;
     try {
         const res = yield auth.sendPasswordResetEmail(email)
         yield put(changePasswordSucces('Email sent'))
+        console.log(res)
+        yield (put(changePasswordSucces))
+        put(notifySucces('En e-post ble sendt for å kunne endre passordet.'))
+
     } catch (error) {
         yield put(changePasswordError(error.message))
+        put(notifyError(error.message))
+
     }
-    console.log(user)
+    //console.log(user)
 
 }
 

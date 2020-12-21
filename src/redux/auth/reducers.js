@@ -10,7 +10,10 @@ import {
     REGISTER_USER_INIT,
     GET_USER_ACTIVITIES_SUCCES,
     GET_USER_DATA_SUCCES,
-    GET_USER_DATA
+    GET_USER_DATA,
+    CHANGE_PASSWORD,
+    CHANGE_PASSWORD_SUCCES,
+    CHANGE_PASSWORD_ERROR
 } from '../../constants/actionType';
 
 const INIT_STATE = {
@@ -67,6 +70,18 @@ export default (state = INIT_STATE, action) => {
                     gender: action.payload.data.gender,
                     email: action.payload.data.email
                 }
+            }
+        case CHANGE_PASSWORD:
+            return {
+                ...state, loading: true
+            }
+        case CHANGE_PASSWORD_SUCCES:
+            return {
+                ...state, loading: false
+            }
+        case CHANGE_PASSWORD_ERROR:
+            return {
+                ...state, loading: false
             }
 
         default:
