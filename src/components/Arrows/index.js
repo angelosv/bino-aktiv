@@ -7,13 +7,13 @@ import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 const Arrows = () => (
     <Styled>
         <Row>
-            <Col xs="6" sm="6" className="arrows-previous">
+            <Col xs="6" sm="6" className="arrows-previous" noGutter>
                 <button disabled>
                     <BsChevronLeft />
                     <span>Forrige måned</span>
                 </button>
             </Col>
-            <Col xs="6" sm="6" className="arrows-next">
+            <Col xs="6" sm="6" className="arrows-next" noGutter>
                 <button disabled>
                     <span>Neste måned</span>
                     <BsChevronRight />
