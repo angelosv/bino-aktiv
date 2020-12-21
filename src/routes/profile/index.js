@@ -17,7 +17,6 @@ const Profile = (loggedUser) => {
     const onSubmit = data => {
         dispatch(updateUser(data));
         dispatch(getUserData())
-
     };
     useEffect(() => {
         dispatch(getUserData())
@@ -95,6 +94,7 @@ const Profile = (loggedUser) => {
                     <Row>
                         <Col>
                             <Button action={() => dispatch(changePassword())}>Tilbakestille Passord</Button>
+                            <span className="reset-message">Hvis du tilbakestiller passordet, kreves pålogging på nytt</span>
                         </Col>
                     </Row>
                 </Container>
@@ -122,5 +122,9 @@ const Styled = styled.div`
     }
     button {
         margin-top: 35px;
+    }
+    .reset-message {
+        font-weight: 400;
+        padding-top: 15px;
     }
 `

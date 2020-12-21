@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
-import { loginUser } from '../../../redux/actions';
+import { loginUser, changePassword } from '../../../redux/actions';
 import Button from '../../../components/Button';
 
 const Login = () => {
@@ -35,8 +35,13 @@ const Login = () => {
                 {errors.password && <span className="input-error-text">Vennligst sjekk dette feltet</span>}
                 <span>Passordet må inneholde minst 8 tegn</span>
                 <Button type="submit">Logg inn</Button>
-                <span className="forgot-password">Glemt passordet ditt?</span>
             </form>
+            <button
+                className="forgot-password"
+                onClick={() => dispatch(changePassword())}
+            >
+                Glemt passordet ditt?
+            </button>
         </Styled>
     );
 }
@@ -55,6 +60,18 @@ const Styled = styled.div`
         margin-bottom: 5px;
         &:focus {
             border: none;
+        }
+    }
+    .forgot-password {
+        font-size: 14px;
+        font-weight: 700;
+        color: ${({ theme }) => theme.primaryColor};
+        display: block;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        &:hover {
+            color: ${({ theme }) => theme.secondaryColor};
         }
     }
 `

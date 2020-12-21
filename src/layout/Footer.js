@@ -38,9 +38,12 @@ export default Footer;
 
 
 const Styled = styled.div`
-    max-width: 900px;
+    max-width: 950px;
     margin: 0 auto;
     padding: 50px 0px;
+    @media only screen and (min-width: 1600px) {
+        max-width: 1200px;
+    }
     .footer-top {
         padding-top: 75px;
         padding-bottom: 75px;

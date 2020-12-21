@@ -79,10 +79,4 @@ const Styled = styled.div`
         margin-top: 35px;
         margin-bottom: 25px;
     }
-    .forgot-password {
-        font-size: 14px;
-        font-weight: 700;
-        color: ${({ theme }) => theme.primaryColor};
-        display: block;
-    }
 `

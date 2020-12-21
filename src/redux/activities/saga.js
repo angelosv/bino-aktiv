@@ -33,7 +33,7 @@ function* addActivity({ payload }) {
 
     } catch (error) {
         yield put(addActivityError(error.message))
-        yield notifyError("Ops!")
+        yield notifyError("Aktiviteten kunne ikke lagres. Vennligst prøv igjen.")
 
     }
 }

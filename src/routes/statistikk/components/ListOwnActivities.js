@@ -12,12 +12,13 @@ const monthNames = ["Januar", "Februar", "Mars", "April", "Mai", "Juni",
 const ListOwnActivities = ({ activities }) => {
     const currentMonth = new Date().getMonth();
     const currentMonthName = monthNames[currentMonth];
+    const activitiesSorted = activities && activities.sort((a, b) => new Date(a.date) - new Date(b.date));
     return (
         <Styled>
             <Row className="training-per-month">
                 <Col>
                     <h3 className="month-title c-green">{currentMonthName}</h3>
-                    {activities && activities.map((activity) => {
+                    {activitiesSorted && activitiesSorted.map((activity) => {
                         const date = new Date(activity.date);
                         const dayName = weekDays[(date.getDay())];
                         const dayNumber = date.getDate();
