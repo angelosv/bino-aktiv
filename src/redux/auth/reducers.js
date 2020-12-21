@@ -22,6 +22,7 @@ const INIT_STATE = {
     authId: localStorage.getItem('fb_user_id'),
     email: localStorage.getItem('fb_email'),
     error: false,
+    loading: false,
 };
 
 export default (state = INIT_STATE, action) => {

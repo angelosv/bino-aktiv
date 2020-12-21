@@ -39,7 +39,6 @@ const Login = () => {
             </form>
             <button
                 className="forgot-password"
-                onClick={() => dispatch(changePassword())}
             >
                 <Link to={'/recovery'}>Glemt passordet ditt?</Link>
             </button>
