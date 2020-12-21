@@ -9,7 +9,8 @@ import {
     REGISTER_USER_SUCCESS,
     REGISTER_USER_INIT,
     GET_USER_ACTIVITIES_SUCCES,
-    GET_USER_DATA_SUCCES
+    GET_USER_DATA_SUCCES,
+    GET_USER_DATA
 } from '../../constants/actionType';
 
 const INIT_STATE = {
@@ -49,6 +50,13 @@ export default (state = INIT_STATE, action) => {
         case LOGOUT_USER_ERROR:
             return { ...state, loading: false, error: true, errorMessage: action.payload.error };
         case GET_USER_ACTIVITIES_SUCCES:
+
+        case GET_USER_DATA:
+            return {
+                ...state, user: {
+                    loading: true,
+                }
+            }
             return { ...state, loading: false, error: false, useractivities: action.payload.data };
         case GET_USER_DATA_SUCCES:
             return {

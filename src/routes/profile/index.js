@@ -12,6 +12,8 @@ import Layout from '../../layout';
 import Button from '../../components/Button';
 
 const Profile = (loggedUser) => {
+    const loading = useSelector(state => state.auth.user.loading);
+
     const dispatch = useDispatch();
     const { register, handleSubmit, errors, reset } = useForm();
     const onSubmit = data => {
@@ -23,7 +25,6 @@ const Profile = (loggedUser) => {
     }, [])
 
     const user = useSelector(state => state.auth.user);
-    const loading = useSelector(state => state.auth.loading);
 
     const { name, surname, team, email, gender } = user
     const teamOptions = [

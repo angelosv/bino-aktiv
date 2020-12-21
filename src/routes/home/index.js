@@ -12,7 +12,8 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from 'react-loader-spinner'
 const Home = ({ history, state }) => {
     const loading = useSelector(state => state.auth.loading);
-
+    const authed = useSelector(state => state.auth.authId);
+    const uid = localStorage.getItem('user_id')
     return (
         <Layout>
             {loading ? <Loader className="loader"
@@ -22,7 +23,7 @@ const Home = ({ history, state }) => {
                 width={100}
 
             /> : ''}
-            {useSelector(state => state.auth.authId) !== null ? <Redirect to={'/aktivitet'}></Redirect> : ''}
+            {authed !== null ? <Redirect to={'/aktivitet'}></Redirect> : ''}
             <Styled>
                 <Container>
                     <Row>
@@ -40,10 +41,11 @@ const Home = ({ history, state }) => {
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs="12" sm="12" md="6" xl="5">
+                        {!uid ? <Col xs="12" sm="12" md="6" xl="5">
                             <h1>Logg inn</h1>
                             <Login />
-                        </Col>
+                        </Col> : ''}
+
                     </Row>
                 </Container>
 
