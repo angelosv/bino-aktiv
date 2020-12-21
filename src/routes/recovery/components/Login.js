@@ -29,7 +29,7 @@ const Login = () => {
                 <Button type="submit">Reset</Button>
             </form>
 
-            <Link to={'/'}>Tilbake til logg-in</Link>
+            <Link to={'/'} className="forgot-password">Tilbake til logg in</Link>
         </Styled>
     );
 }
@@ -51,7 +51,9 @@ const Styled = styled.div`
         }
     }
     .forgot-password {
-        font-size: 14px;
+        border: none;
+        background: transparent;
+        font-size: 16px;
         font-weight: 700;
         color: ${({ theme }) => theme.primaryColor};
         display: block;

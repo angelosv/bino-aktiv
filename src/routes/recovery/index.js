@@ -21,7 +21,7 @@ const Recovery = ({ history, state }) => {
                 <Container>
                     <Row>
                         <Col xs="12" sm="12" md="6" xl="5">
-                            <h1>Password recovery</h1>
+                            <h1>Passordgjenoppretting</h1>
                             <Login />
                         </Col>
 

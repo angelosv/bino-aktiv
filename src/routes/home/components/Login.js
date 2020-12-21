@@ -64,15 +64,19 @@ const Styled = styled.div`
         }
     }
     .forgot-password {
-        font-size: 14px;
-        font-weight: 700;
-        color: ${({ theme }) => theme.primaryColor};
-        display: block;
         border: none;
         background: transparent;
-        cursor: pointer;
-        &:hover {
-            color: ${({ theme }) => theme.secondaryColor};
+        a {
+            font-size: 16px;
+            font-weight: 700;
+            color: ${({ theme }) => theme.primaryColor};
+            display: block;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            &:hover {
+                color: ${({ theme }) => theme.secondaryColor};
+            }
         }
     }
 `
