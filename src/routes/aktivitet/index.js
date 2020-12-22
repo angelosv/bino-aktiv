@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { connect } from 'react-redux';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
@@ -10,22 +10,22 @@ import { Formik, Field, Form } from 'formik';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-import { addActivity } from '../../redux/actions';
+import { addActivity, getUserData } from '../../redux/actions';
 import Layout from '../../layout';
 import Button from '../../components/Button';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Aktivitet = () => {
+    useEffect(() => {
+        dispatch(getUserData())
+    }, [])
     const dispatch = useDispatch();
     const [startDate, setStartDate] = useState(new Date());
     const user = useSelector(state => state.auth.user);
     const loading = useSelector(state => state.activities.loading);
-    const notify = () => toast.success("Aktivitet lagret!", {
-        autoClose: 1000,
-        position: "top-center",
-    });
+    let { team } = user;
+    team = parseInt(team)
 
-    const { team } = user;
 
     return (
 
@@ -52,7 +52,9 @@ const Aktivitet = () => {
                                     duration: 3,
                                 }}
                                 onSubmit={(form) => {
+                                    console.log(team, 'esto es team')
                                     const durationNumber = parseInt(form.duration);
+                                    form.team = team;
                                     form.date = startDate.toString();
                                     form.team = parseInt(team);
                                     form.duration = durationNumber;

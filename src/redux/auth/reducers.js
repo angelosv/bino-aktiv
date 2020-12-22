@@ -54,14 +54,14 @@ export default (state = INIT_STATE, action) => {
         case LOGOUT_USER_ERROR:
             return { ...state, loading: false, error: true, errorMessage: action.payload.error };
         case GET_USER_ACTIVITIES_SUCCES:
-
+            return { ...state, loading: false, error: false, useractivities: action.payload.data };
         case GET_USER_DATA:
             return {
-                ...state, user: {
-                    loading: true,
-                }
-            }
-            return { ...state, loading: false, error: false, useractivities: action.payload.data };
+                ...state,
+                loading: true,
+                error: false,
+            };
+
         case GET_USER_DATA_SUCCES:
             return {
                 ...state, loading: false, error: false, user: {

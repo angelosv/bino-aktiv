@@ -22,9 +22,9 @@ const Statistikk = () => {
         dispatch(getUserActivities());
     }, [])
     const userActivities = useSelector(state => state.auth.useractivities);
-    console.log(userActivities)
+    console.log(userActivities, '<- User')
     const AllUsersActivities = useSelector(state => state.activities);
-    console.log(AllUsersActivities)
+    console.log(AllUsersActivities, '<- All')
     const loading = useSelector(state => state.activities.loading);
     //aqui te dejo la info de tanto del usuario logeado, como de todos los usuarios.
     let countPoints = 0;
@@ -61,7 +61,7 @@ const Statistikk = () => {
                     <ListOwnActivities activities={userActivities && userActivities} />
                     <Row>
                         <Col>
-                            <Link to="/aktivitet">
+                            <Link to={"/aktivitet"}>
                                 <Button>
                                     Registrer ny treningsøkt
                                 </Button>
