@@ -68,7 +68,7 @@ const AddUser = () => {
                                     className={errors.surname && 'input-error-field'}
                                 />
                                 {errors.surname && <span className="input-error-text">Vennligst sjekk dette feltet</span>}
-                                <label>Gender</label>
+                                <label>Kjønn</label>
                                 <select name="gender" ref={register({ required: true })}>
                                     <option value="Kvinne">Kvinne</option>
                                     <option value="Mann">Mann</option>

@@ -26,7 +26,7 @@ const Login = () => {
                 {errors.email && <span className="input-error-text">Vennligst sjekk dette feltet</span>}
                 <span>Oppgi en gyldig e-mail-adresse</span>
 
-                <Button type="submit">Reset</Button>
+                <Button type="submit">Tilbakestill</Button>
             </form>
 
             <Link to={'/'} className="forgot-password">Tilbake til logg in</Link>

@@ -29,7 +29,7 @@ const Login = () => {
                     name="password"
                     type="password"
                     autoComplete="new-password"
-                    placeholder="Password"
+                    placeholder="Passord"
                     ref={register({ required: true, minLength: 8 })}
                     className={errors.password && 'input-error-field'}
                 />

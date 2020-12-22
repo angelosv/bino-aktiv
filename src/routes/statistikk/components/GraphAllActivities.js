@@ -35,7 +35,7 @@ const GraphAllActivities = ({ activities }) => {
                     <Col key={result} xs="6" sm="6" md="3">
                         <span className="c-green">{result} poeng</span>
                         <ColumnBar poeng={result * maxHeight / maxResult} />
-                        <div className="team">
+                        <div className={`team ${(index === 0 || index === 1) && 'team-mobile'}`}>
                             <h3 className="c-green">{DataTeams[index].name}</h3>
                             <img src={DataTeams[index].image} alt={DataTeams[index].name} />
                         </div>
@@ -79,7 +79,13 @@ const StyledGraph = styled.div`
             }
         }
     }
+    @media only screen and (max-width: 767px) {
+        .team-mobile {
+            margin-bottom: 65px;
+        }
+    }
 `
+
 
 const ColumnBar = styled.div`
     background: ${({ theme }) => theme.secondaryColor };

@@ -50,7 +50,7 @@ const Menu = ({ open }) => {
           </li>
         ))}
         <li>
-          {loggedUser ? <Link className="menu-item" onClick={() => { dispatch(logOutUser()) }}>Logg out</Link>
+          {loggedUser ? <Link className="menu-item" onClick={() => { dispatch(logOutUser()) }}>Logg ut</Link>
             : <Link className="menu-item" to={'/'}>Logg inn</Link>}
         </li>
 

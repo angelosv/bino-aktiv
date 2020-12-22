@@ -83,7 +83,7 @@ const Styled = styled.div`
         font-weight: 700;
     }
     .dine-poeng {
-        margin-top: 75px;
+        margin-top: 115px;
         margin-bottom: 25px;
     }
     .dine-trening {
@@ -106,5 +106,10 @@ const Styled = styled.div`
     }
     .trening-data {
         margin-bottom: 15px;
+    }
+    @media only screen and (max-width: 767px) {
+        h3 {
+            font-size: 18px;
+        }
     }
 `

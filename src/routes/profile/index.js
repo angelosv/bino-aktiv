@@ -70,7 +70,7 @@ const Profile = (loggedUser) => {
                                     className={errors.surname && 'input-error-field'}
                                 />
                                 {errors.surname && <span className="input-error-text">Vennligst sjekk dette feltet</span>}
-                                <label>Gender</label>
+                                <label>Kjønn</label>
                                 <select name="gender" ref={register({ required: true })}>
 
                                     {genderOptions.map(option => {
@@ -95,7 +95,7 @@ const Profile = (loggedUser) => {
                 <Container>
                     <Row>
                         <Col>
-                            <Button action={() => dispatch(changePassword({ email }))}>Tilbakestille Passord</Button>
+                            <Button action={() => dispatch(changePassword({ email }))}>Tilbakestill passord</Button>
                             <span className="reset-message">Hvis du tilbakestiller passordet, kreves pålogging på nytt</span>
                         </Col>
                     </Row>
