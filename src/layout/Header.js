@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom'
 
 import LogoBA from '../assets/img/Logo_BinoAktiv.svg';
 import Menu from '../components/Menu';
@@ -9,7 +10,9 @@ const Header = () => {
         <Styled>
             <div className="bg-red" />
             <div className="bg-green" />
-            <img src={LogoBA} className="img-logo-ba" alt="header-background" />
+            <Link to="/statistikk">
+                <img src={LogoBA} className="img-logo-ba" alt="header-background" />
+            </Link>
             <Menu />
         </Styled>
     );

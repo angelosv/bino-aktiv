@@ -70,23 +70,26 @@ const Profile = (loggedUser) => {
                                     className={errors.surname && 'input-error-field'}
                                 />
                                 {errors.surname && <span className="input-error-text">Vennligst sjekk dette feltet</span>}
-                                <label>Kjønn</label>
-                                <select name="gender" ref={register({ required: true })}>
+                                <div className="no-display">
+                                    <label>Kjønn</label>
+                                    <select name="gender" ref={register({ required: true })}>
 
-                                    {genderOptions.map(option => {
-                                        return <option value={option} selected={gender === option ? 'selected' : ''}>{option}</option>
+                                        {genderOptions.map(option => {
+                                            return <option value={option} selected={gender === option ? 'selected' : ''}>{option}</option>
 
-                                    })}
-                                </select>
-                                <label>Team</label>
-                                <select name="team" ref={register({ required: true })}>
-                                    {teamOptions.map(option => {
-                                        return <option value={option} selected={parseInt(team) === option ? 'selected' : ''}>{option}</option>
+                                        })}
+                                    </select>
+                                </div>
+                                <div className="no-display">
+                                    <label>Team</label>
+                                    <select name="team" ref={register({ required: true })}>
+                                        {teamOptions.map(option => {
+                                            return <option value={option} selected={parseInt(team) === option ? 'selected' : ''}>{option}</option>
 
-                                    })}
+                                        })}
 
-                                </select>
-
+                                    </select>
+                                </div>
                                 <Button type="submit">Lagre</Button>
                             </form>
                         </Col>

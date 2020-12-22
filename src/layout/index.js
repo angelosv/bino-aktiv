@@ -135,6 +135,9 @@ const Styled = styled.div`
     .c-grey {
         color: ${({ theme }) => theme.greyBackground};
     }
+    .no-display {
+        display: none;
+    }
     @media only screen and (max-width: 767px) {
         .no-display-under-767 {
             display: none !important;

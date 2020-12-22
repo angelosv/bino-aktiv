@@ -22,7 +22,7 @@ const Teams = () => (
                     {Data.map((team) => (
                         <Col md="6">
                             <div className="team">
-                                <h2>{team.name}</h2>
+                                <h2 className="c-red">{team.name}</h2>
                                 <img src={team.image} alt={team.name} />
                                 <div className="team-info">
                                     <p className="c-green">Teamleder:</p>

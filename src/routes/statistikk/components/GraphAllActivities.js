@@ -36,7 +36,7 @@ const GraphAllActivities = ({ activities }) => {
                         <span className="c-green">{result} poeng</span>
                         <ColumnBar poeng={result * maxHeight / maxResult} />
                         <div className={`team ${(index === 0 || index === 1) && 'team-mobile'}`}>
-                            <h3 className="c-green">{DataTeams[index].name}</h3>
+                            <h3 className="c-red">{DataTeams[index].name}</h3>
                             <img src={DataTeams[index].image} alt={DataTeams[index].name} />
                         </div>
                     </Col>
