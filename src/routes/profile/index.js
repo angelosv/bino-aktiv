@@ -47,7 +47,7 @@ const Profile = (loggedUser) => {
                 <Container>
                     <Row>
                         <Col>
-                            <h1>Profile</h1>
+                            <h1>Profil</h1>
                             <form onSubmit={handleSubmit(onSubmit)} className="login-form">
 
                                 <label>Fornavn</label>

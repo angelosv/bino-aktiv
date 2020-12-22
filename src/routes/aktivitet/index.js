@@ -43,7 +43,7 @@ const Aktivitet = () => {
                 <Container>
                     <Row>
                         <Col>
-                            <h1>Register aktivitet</h1>
+                            <h1>Registrer aktivitet</h1>
 
                             <Formik
                                 initialValues={{
