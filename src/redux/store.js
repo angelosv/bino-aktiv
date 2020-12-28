@@ -21,7 +21,5 @@ export default function configApp(initialState) {
         });
     }
 
-
-
     return store;
 }
