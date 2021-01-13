@@ -51,7 +51,7 @@ const Statistikk = () => {
                     </Row>
                     <Row className="dine-trening">
                         <Col>
-                            <h3 className="c-green">Dine treningsøkter</h3>
+                            <h3 className="c-green">Dine aktiviteter</h3>
                             <GraphOwnTrening activities={userActivities && userActivities} />
                         </Col>
                     </Row>
@@ -60,7 +60,7 @@ const Statistikk = () => {
                         <Col>
                             <Link to={"/aktivitet"}>
                                 <Button>
-                                    Registrer ny treningsøkt
+                                    Registrer ny aktivitet
                                 </Button>
                             </Link>
                         </Col>

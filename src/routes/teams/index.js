@@ -32,6 +32,7 @@ const Teams = () => (
                                     <p className="c-green">Motto:</p>
                                     <p className="c-red">{team.motto}</p>
                                 </div>
+                                {team.members && team.members.map((member) => <span className="team-member">{member}</span>)}
                             </div>
                         </Col>
                     ))}
@@ -67,11 +68,18 @@ const Styled = styled.div`
         }
         &-info {
             margin-top: 20px;
+            margin-bottom: 20px;
             p {
                 margin-top: 0px;
                 margin-bottom: 0px;
                 font-size: 18px;
             }
+        }
+        &-member {
+            font-weight: 400;
+            font-size: 18px;
+            display: block;
+            padding-top: 10px;
         }
     }
 `
@@ -81,24 +89,28 @@ const Data = [
         name: 'Kompani Lorentzen',
         image: Team1,
         leader: 'Cecilie Lorentzen',
-        motto: '«Den som gir seg er en dritt»'
+        motto: '«Den som gir seg er en dritt»',
+        members: ["Knut Robert Lund", "Tove Bjerknes", "Phillip Claunch", "Anne-Lise Evensen", "Stein Erik Grøneng", "Hanne Hauge", "Ulf Munack", "Ine Jørgensen", "Marit Høiby", "Jorge Lizano", "Øystein Ness", "Merethe Off", "Tone Røneid", "Sissel Sandberg", "Alette Skifjeld", "Per Kristian Troppen", "Carl Samuelsen"],
     },
     {
         name: 'Acitivitas & Festivitas',
         image: Team2,
         leader: 'Janni Eggerdink',
-        motto: 'Gi litt hver dag\n– for deg selv og for teamet!'
+        motto: 'Gi litt hver dag\n– for deg selv og for teamet!',
+        members: ["Lise anita alstad", "Elisabeth Arnstad", "Annette Buer", "Anne Pernille Ofstad", "Malena Grant", "Ann Kristin Halvorsen", "Arne Helvig", "Anne Hunstad", "Heidi Kristiansen", "Georg Lindefjeld", "Frank Robert Lund", "Kathrine Nordgård", "Svein Persen", "Siri Sætersdal", "Leyla Selvig", "Marianne Sollie", "Lea Tran"]
     },
     {
         name: '71 grader BINOs',
         image: Team3,
         leader: 'Elisabeth Wike',
-        motto: 'Just do It'
+        motto: 'Just do It',
+        members: ["Asger Friis", "Mona Andersen", "Margrete Bjurstrøm", "Morten Clausen", "Torhild Goa", "Camilla Håvik", "Håvard Haugnes", "Arnt-Ove Hovden", "Rok Kosmina", "Ann Kristin Lillelien", "Heidi Holter", "Tanja Nordang", "Niki Line Ramsey", "Silke Berg-Fliss", "Christian Schinnes", "Ingvild F. Meyer"]
     },
     {
         name: 'BINO Marines',
         image: Team4,
         leader: 'Svein Roseth',
-        motto: 'Born Ready'
+        motto: 'Born Ready',
+        members: ["Irene Andersen", "Lise berget", "Anne christiansen", "Anne-Marit Ellingbø", "Linn Maiken Gresseth", "Ingeborg Hansen-Tangen", "Sverre Sølversen", "Gry Jørgensen", "Bjørn-Arne Larsen", "Jarle Lindheim", "Tore Ørjansen", "Henriette Sagerud", "Thomas Sjåvik", "Tracy Sveinhaug", "Tone Vik", "Inger-Marie Martinsen", "Beate Valsø"]
     },
 ]

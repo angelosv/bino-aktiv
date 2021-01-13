@@ -30,17 +30,18 @@ const ListOwnActivities = ({ activities }) => {
                             <>
                                 {month === currentMonthName.toLowerCase() && (
                                     <Row className="trening-data">
-                                        <Col xs="6" sm="6" md="4">
+                                        <Col xs="4" sm="4" md="4">
                                             <span>{dayName} {dayNumber}. {month}</span>
                                         </Col>
-                                        <Col xs="3" sm="3" md="2">
+                                        <Col xs="3" sm="2" md="2">
                                             <span>{activity.duration * 15} min</span>
                                         </Col>
                                         <Col xs="3" sm="3" md="3">
                                             <span>{activity.type}</span>
                                         </Col>
-                                        <Col xs="3" sm="3" md="3" onClick={() => dispatch(deleteActivity(activity.id))}>
-                                            <span>Slett aktivitet</span>
+                                        <Col xs="2" sm="3" md="3" onClick={() => dispatch(deleteActivity(activity.id))} style={{ textAlign: "right" }} >
+                                            <span className="c-red remove-activity display-desktop">Slett aktivitet</span>
+                                            <span className="c-red remove-activity display-mobile">Slett</span>
                                         </Col>
                                     </Row>
                                 )}
@@ -90,6 +91,22 @@ const Styled = styled.div`
             @media only screen and (max-width: 575px) {
                 font-size: 12px;
             }
+        }
+    }
+    .remove-activity {
+        font-weight: 700 !important;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    .display-desktop {
+        @media only screen and (max-width: 767px) {
+            display: none !important;
+        }
+    }
+    .display-mobile {
+        @media only screen and (min-width: 768px) {
+            display: none !important;
         }
     }
 `
