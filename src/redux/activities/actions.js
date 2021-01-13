@@ -7,7 +7,10 @@ import {
     GET_USER_ACTIVITIES_ERROR,
     GET_ALL_USERS_ACTIVITIES,
     GET_ALL_USERS_ACTIVITIES_ERROR,
-    GET_ALL_USERS_ACTIVITIES_SUCCES
+    GET_ALL_USERS_ACTIVITIES_SUCCES,
+    DELETE_ACTIVITY,
+    DELETE_ACTIVITY_ERROR,
+    DELETE_ACTIVITY_SUCCES
 } from '../../constants/actionType';
 
 export const addActivity = (data) => ({
@@ -52,4 +55,19 @@ export const getAllUsersActivitiesSucces = (res) => ({
 export const getAllUsersActivitiesError = (error) => ({
     type: GET_ALL_USERS_ACTIVITIES_ERROR,
     payload: error
+})
+
+export const deleteActivity = (id) => ({
+    type: DELETE_ACTIVITY,
+    payload: id
+})
+
+export const deleteActivitySucces = (payload) => ({
+    type: DELETE_ACTIVITY_SUCCES,
+    payload
+})
+
+export const deleteActivityError = (payload) => ({
+    type: DELETE_ACTIVITY_ERROR,
+    payload
 })

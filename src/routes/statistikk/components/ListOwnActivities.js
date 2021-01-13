@@ -1,15 +1,18 @@
 import React from 'react';
 import { Row, Col } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { deleteActivity } from '../../../redux/actions';
 
 import Arrows from '../../../components/Arrows';
 
 const weekDays = ['Søndag', 'Mandag', 'Torsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag']
 const monthNames = ["Januar", "Februar", "Mars", "April", "Mai", "Juni",
-  "Juli", "August", "September", "Oktober", "November", "Desember"
+    "Juli", "August", "September", "Oktober", "November", "Desember"
 ];
 
 const ListOwnActivities = ({ activities }) => {
+    const dispatch = useDispatch();
     const currentMonth = new Date().getMonth();
     const currentMonthName = monthNames[currentMonth];
     const activitiesSorted = activities && activities.sort((a, b) => new Date(a.date) - new Date(b.date));
@@ -35,6 +38,9 @@ const ListOwnActivities = ({ activities }) => {
                                         </Col>
                                         <Col xs="3" sm="3" md="3">
                                             <span>{activity.type}</span>
+                                        </Col>
+                                        <Col xs="3" sm="3" md="3" onClick={() => dispatch(deleteActivity(activity.id))}>
+                                            <span>Slett aktivitet</span>
                                         </Col>
                                     </Row>
                                 )}

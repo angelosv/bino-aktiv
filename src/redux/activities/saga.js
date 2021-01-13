@@ -3,13 +3,16 @@ import {
     ADD_ACTIVITY,
     GET_ALL_USERS_ACTIVITIES_SUCCES,
     GET_USER_ACTIVITIES,
-    GET_ALL_USERS_ACTIVITIES
+    GET_ALL_USERS_ACTIVITIES,
+    DELETE_ACTIVITY
 } from '../../constants/actionType';
 import { auth, functions } from '../../firebase';
 import {
     addActivitySucces,
     addActivityError,
-    dialogInfoOn
+    dialogInfoOn,
+    deleteActivityError,
+    deleteActivitySucces
 
 } from '../actions'
 import { getAllUsersActivitiesError, getAllUsersActivitiesSucces, getUserActivitiesError, getUserActivitiesSucces } from './actions';
@@ -69,12 +72,25 @@ function* getAllUsersActivities({ payload }) {
 
 }
 
+function* deleteActivity({ payload }) {
+    try {
+        // const deleteActivity = functions.httpsCallable('deleteActivity');
+        // const res = yield deleteActivity();
+        // console.log(res)
+        console.log('deleting', payload)
+        yield put(deleteActivitySucces())
+    } catch (error) {
+        console.log(error)
+        yield put(deleteActivityError())
+    }
+}
 
 
 export default function* rooSaga() {
     yield all([
         takeEvery(ADD_ACTIVITY, addActivity),
         takeEvery(GET_USER_ACTIVITIES, getUserActivities),
-        takeEvery(GET_ALL_USERS_ACTIVITIES, getAllUsersActivities)
+        takeEvery(GET_ALL_USERS_ACTIVITIES, getAllUsersActivities),
+        takeEvery(DELETE_ACTIVITY, deleteActivity)
     ]);
 }

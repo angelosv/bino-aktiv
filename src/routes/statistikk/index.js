@@ -22,11 +22,8 @@ const Statistikk = () => {
         dispatch(getUserActivities());
     }, [])
     const userActivities = useSelector(state => state.auth.useractivities);
-    console.log(userActivities, '<- User')
     const AllUsersActivities = useSelector(state => state.activities);
-    console.log(AllUsersActivities, '<- All')
     const loading = useSelector(state => state.activities.loading);
-    //aqui te dejo la info de tanto del usuario logeado, como de todos los usuarios.
     let countPoints = 0;
     userActivities && userActivities.map((activity) => countPoints = countPoints + activity.duration);
     return (
