@@ -20,7 +20,8 @@ import {
     CHANGE_PASSWORD_SUCCES,
     GET_USER_DATA_SUCCES,
     GET_USER_DATA,
-    GET_USER_DATA_ERROR
+    GET_USER_DATA_ERROR,
+    UPDATE_USER_ACTIVITIES
 } from '../../constants/actionType';
 
 export const updateUser = (payload) => ({
@@ -113,5 +114,10 @@ export const getUserDataSucces = (payload) => ({
 
 export const getUserDataError = (payload) => ({
     type: GET_USER_DATA_ERROR,
+    payload
+})
+
+export const updateUserActivities = (payload) => ({
+    type: UPDATE_USER_ACTIVITIES,
     payload
 })

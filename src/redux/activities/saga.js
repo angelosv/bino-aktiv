@@ -12,7 +12,8 @@ import {
     addActivityError,
     dialogInfoOn,
     deleteActivityError,
-    deleteActivitySucces
+    deleteActivitySucces,
+    updateUserActivities
 
 } from '../actions'
 import { getAllUsersActivitiesError, getAllUsersActivitiesSucces, getUserActivitiesError, getUserActivitiesSucces } from './actions';
@@ -73,12 +74,19 @@ function* getAllUsersActivities({ payload }) {
 }
 
 function* deleteActivity({ payload }) {
+    console.log(payload)
+
     try {
-        // const deleteActivity = functions.httpsCallable('deleteActivity');
-        // const res = yield deleteActivity();
-        // console.log(res)
-        console.log('deleting', payload)
-        yield put(deleteActivitySucces())
+        const deleteActivity = functions.httpsCallable('deleteActivity');
+        const res = yield deleteActivity(payload);
+        console.log(res)
+        yield notifySucces("Aktivitet slettet!")
+
+        setTimeout(() => {
+            window.location.href = '/statistikk'
+        }
+            , 2000)
+
     } catch (error) {
         console.log(error)
         yield put(deleteActivityError())

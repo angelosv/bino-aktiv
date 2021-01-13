@@ -13,7 +13,8 @@ import {
     GET_USER_DATA,
     CHANGE_PASSWORD,
     CHANGE_PASSWORD_SUCCES,
-    CHANGE_PASSWORD_ERROR
+    CHANGE_PASSWORD_ERROR,
+    UPDATE_USER_ACTIVITIES
 } from '../../constants/actionType';
 
 const INIT_STATE = {
@@ -55,6 +56,26 @@ export default (state = INIT_STATE, action) => {
             return { ...state, loading: false, error: true, errorMessage: action.payload.error };
         case GET_USER_ACTIVITIES_SUCCES:
             return { ...state, loading: false, error: false, useractivities: action.payload.data };
+
+        case UPDATE_USER_ACTIVITIES:
+            // const res = state.useractivities.findIndex(fruit => fruit === action.payload)
+            //  console.log('resultado ->:', res, 'action: ->', action.payload, 'user activities: =>', state.useractivities)
+
+
+            var __FOUND = state.useractivities.findIndex(function (post, index) {
+                if (post.id == action.payload)
+                    return index;
+            });
+            console.log(__FOUND, 'respuesta')
+            var someArray = state.useractivities.slice(0, __FOUND).concat(state.useractivities.slice(-__FOUND));
+
+            // On success __FOUND will contain the index of the element
+            // On failure it will contain -1
+            console.log(__FOUND, someArray); // 2
+            return {
+                ...state, loading: false, error: false, useractivities: someArray
+            };
+
         case GET_USER_DATA:
             return {
                 ...state,
