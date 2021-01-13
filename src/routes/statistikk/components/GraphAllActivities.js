@@ -13,13 +13,13 @@ const GraphAllActivities = ({ activities }) => {
     let resultTeam4 = 0;
 
     activities && activities.map((result) => {
-        if (result.team === 1) {
+        if (result.team === 4) {
             resultTeam1 += result.duration;
         } else if (result.team === 2) {
             resultTeam2 += result.duration;
-        } else if (result.team === 3) {
+        } else if (result.team === 1) {
             resultTeam3 += result.duration;
-        } else if (result.team === 4) {
+        } else if (result.team === 3) {
             resultTeam4 += result.duration;
         }
     })
