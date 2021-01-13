@@ -15,7 +15,8 @@ const INIT_STATE = {
 };
 
 export default (state = INIT_STATE, action) => {
-
+    console.log(action)
+    console.log(state)
     switch (action.type) {
         case ADD_ACTIVITY:
             return { ...state, loading: true, error: false };
@@ -32,7 +33,10 @@ export default (state = INIT_STATE, action) => {
         case DELETE_ACTIVITY:
             return { ...state, loading: true, error: false };
         case DELETE_ACTIVITY_SUCCES:
-            return { ...state, loading: false, error: false };
+            return {
+                ...state
+                , loading: false, error: false
+            };
         case DELETE_ACTIVITY_ERROR:
             return { ...state, loading: false, error: false };
 

@@ -3,11 +3,11 @@ const admin = require('firebase-admin');
 const cors = require('cors')({ origin: true });
 
 //Local->
-let config = require('../env.json');
+//let config = require('../env.json');
 
 
 //Prod->
-//config = functions.config()
+config = functions.config()
 
 
 
@@ -168,23 +168,44 @@ exports.getAllUsersActivities = functions.https.onCall((data, context) => {
 })
 
 
-exports.deleteActivity = functions.https.onCall(() => {
+exports.deleteActivity = functions.https.onCall((data, context) => {
+    console.log(data)
+    if (!context.auth) {
+        throw new functions.https.HttpsError(
+            'unauthenticated',
+            'only authenticated users can add requests'
+        );
+    }
 
+    const activity = db.collection("activity").doc(data).delete()
+    activity.then((data) => {
+        return data
+    }).catch((error) => {
+        return console.log("Error getting document:", error)
+    });
 
-    const activity = db.collection("activity").doc(data.id);
+})
+
+exports.getUser = functions.https.onCall((data, context) => {
+
+    if (!context.auth) {
+        throw new functions.https.HttpsError(
+            'unauthenticated',
+            'only authenticated users can add requests'
+        );
+    }
+    const users = db.collection('users').doc(context.auth.uid);
     const res = users.get().then((doc) => {
         // eslint-disable-next-line promise/always-return
-        const res = users.get().then((doc) => {
-            // eslint-disable-next-line promise/always-return
-            if (doc.exists) {
-                var data = doc.data();
-                data.delete();
-            } else {
-                console.log("No such document!")
-            }
-        }).catch((error) => {
-            console.log("Error getting document:", error)
-        });
+        if (doc.exists) {
+            var data = doc.data();
+            return data;
+        } else {
+            console.log("No such document!")
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error)
+    });
 
-    })
+    return res
 })
