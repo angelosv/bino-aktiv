@@ -18,8 +18,8 @@ import ListOwnActivities from './components/ListOwnActivities';
 const Statistikk = () => {
     const dispatch = useDispatch();
 
-    // const currentMonth = (new Date()).getMonth();
-    const currentMonth = (new Date("02-15-2021")).getMonth();
+    const currentMonth = (new Date()).getMonth();
+    // const currentMonth = (new Date("02-15-2021")).getMonth();
     const [selectedMonth, setSelectedMonth] = useState(currentMonth);
 
     useEffect(() => {
