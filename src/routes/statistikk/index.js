@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from 'react-loader-spinner'
 import { Container, Row, Col } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Star from "../../assets/img/Ikon_stjerne.svg";
 
 import { getAllUsersActivities, getUserActivities } from '../../redux/actions';
 import Layout from '../../layout';
@@ -17,15 +18,26 @@ import ListOwnActivities from './components/ListOwnActivities';
 const Statistikk = () => {
     const dispatch = useDispatch();
 
+    // const currentMonth = (new Date()).getMonth();
+    const currentMonth = (new Date("02-15-2021")).getMonth();
+    const [selectedMonth, setSelectedMonth] = useState(currentMonth);
+
     useEffect(() => {
         dispatch(getAllUsersActivities());
         dispatch(getUserActivities());
-    }, [])
+    }, [dispatch])
     const userActivities = useSelector(state => state.auth.useractivities);
     const AllUsersActivities = useSelector(state => state.activities);
     const loading = useSelector(state => state.activities.loading);
     let countPoints = 0;
     userActivities && userActivities.map((activity) => countPoints = countPoints + activity.duration);
+    const handlePrevious = () => {
+        setSelectedMonth(selectedMonth-1);
+    }
+    const handleNext = () => {
+        setSelectedMonth(selectedMonth+1);
+    }
+    const isCurrentSelected = currentMonth === selectedMonth;
     return (
         <Layout>
             {loading ? <Loader className="loader"
@@ -42,11 +54,20 @@ const Statistikk = () => {
                             <h1>Statistikk</h1>
                         </Col>
                     </Row>
-                    <GraphAllActivities activities={AllUsersActivities && AllUsersActivities.all} />
+                    <GraphAllActivities
+                        activities={AllUsersActivities && AllUsersActivities.all}
+                        currentMonth={currentMonth}
+                        selectedMonth={selectedMonth}
+                        handlePrevious={handlePrevious}
+                        handleNext={handleNext}
+                    />
                     <Row className="dine-poeng">
                         <Col>
                             <span className="c-green">Dine poeng: </span>
                             <span className="c-red">{countPoints} poeng</span>
+                            {!isCurrentSelected && (
+                                <img src={Star} alt="star" className="poeng-stars" />
+                            )}
                         </Col>
                     </Row>
                     <Row className="dine-trening">
@@ -55,7 +76,13 @@ const Statistikk = () => {
                             <GraphOwnTrening activities={userActivities && userActivities} />
                         </Col>
                     </Row>
-                    <ListOwnActivities activities={userActivities && userActivities} />
+                    <ListOwnActivities
+                        activities={userActivities && userActivities}
+                        selectedMonth={selectedMonth}
+                        currentMonth={currentMonth}
+                        handlePrevious={handlePrevious}
+                        handleNext={handleNext}
+                    />
                     <Row>
                         <Col>
                             <Link to={"/aktivitet"}>
@@ -103,6 +130,9 @@ const Styled = styled.div`
     }
     .trening-data {
         margin-bottom: 15px;
+    }
+    .poeng-stars {
+        width: 40px;
     }
     @media only screen and (max-width: 767px) {
         h3 {

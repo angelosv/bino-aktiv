@@ -94,7 +94,9 @@ const Aktivitet = () => {
                                             <option key={index} value={data.poeng}>{data.label}</option>
                                         )}
                                     </Field>
-                                    <Button type="submit">Registrer</Button>
+                                    <div style={{ marginTop: 35 }}>
+                                        <Button type="submit">Registrer</Button>
+                                    </div>
                                 </Form>
                             </Formik>
                         </Col>
@@ -112,9 +114,6 @@ const mapStateToProps = ({ auth }) => ({
 export default connect()(Aktivitet);
 
 const Styled = styled.div`
-    button {
-        margin-top: 35px;
-    }
     .react-datepicker-wrapper {
         width: 300px;
     }

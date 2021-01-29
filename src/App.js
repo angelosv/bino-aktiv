@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerUser, deleteUser, loginUser, addActivity, logOutUser, getUserActivities, getUserData } from './redux/actions';
 import {
-  Redirect, Route, Switch, BrowserRouter, browserHistory
+  Redirect, Route, Switch, BrowserRouter
 } from 'react-router-dom';
 import Home from './routes/home';
 import Statistikk from './routes/statistikk';
@@ -33,19 +32,8 @@ const PrivateRoute = ({ component: Component, authed, ...rest }) => (
 
 
 const App = () => {
-  const dispatch = useDispatch();
   const loggedUser = localStorage.getItem('user_id');
-  const authed = useSelector(state => state.auth.authId)
-  const loading = useSelector(state => state.auth.loading);
-
-  /*  useEffect(() => {
-      console.log(loggedUser)
-      if (loggedUser) {
-        dispatch(getUserData())
-      } else {
   
-      }
-    })*/
   return (<>
 
     <BrowserRouter>

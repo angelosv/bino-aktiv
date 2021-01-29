@@ -4,24 +4,35 @@ import { Row, Col } from 'styled-bootstrap-grid';
 
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 
-const Arrows = () => (
-    <Styled>
-        <Row>
-            <Col xs="6" sm="6" className="arrows-previous" noGutter>
-                <button disabled>
-                    <BsChevronLeft />
-                    <span>Forrige måned</span>
-                </button>
-            </Col>
-            <Col xs="6" sm="6" className="arrows-next" noGutter>
-                <button disabled>
-                    <span>Neste måned</span>
-                    <BsChevronRight />
-                </button>
-            </Col>
-        </Row>
-    </Styled>
-)
+const Arrows = ({
+    selectedMonth, currentMonth, handlePrevious, handleNext,
+}) => {
+
+    return (
+        <Styled>
+            <Row>
+                <Col xs="6" sm="6" className="arrows-previous" noGutter>
+                    <button
+                        onClick={handlePrevious}
+                        disabled={selectedMonth === 0}
+                    >
+                        <BsChevronLeft />
+                        <span>Forrige måned</span>
+                    </button>
+                </Col>
+                <Col xs="6" sm="6" className="arrows-next" noGutter>
+                    <button
+                        onClick={handleNext}
+                        disabled={selectedMonth === 11 || currentMonth === selectedMonth}
+                    >
+                        <span>Neste måned</span>
+                        <BsChevronRight />
+                    </button>
+                </Col>
+            </Row>
+        </Styled>
+    );
+};
 
 export default Arrows;
 
@@ -31,9 +42,14 @@ const Styled = styled.div`
         background: none;
         border: none;
         color: ${({ theme }) => theme.primaryColor};
-        cursor: not-allowed;
         font-weight: 700;
         font-size: 16px;
+        &:hover {
+            cursor: pointer;
+        }
+        :disabled {
+            cursor: not-allowed;
+        }
     }
     svg {
         stroke-width: 1px;

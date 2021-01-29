@@ -3,18 +3,16 @@ import { Row, Col } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { deleteActivity } from '../../../redux/actions';
-
+import MonthNames from "../../../data/MonthNames";
 import Arrows from '../../../components/Arrows';
 
-const weekDays = ['Søndag', 'Mandag', 'Torsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag']
-const monthNames = ["Januar", "Februar", "Mars", "April", "Mai", "Juni",
-    "Juli", "August", "September", "Oktober", "November", "Desember"
-];
+const weekDays = ['Søndag', 'Mandag', 'Torsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'];
 
-const ListOwnActivities = ({ activities }) => {
+const ListOwnActivities = ({
+    activities, currentMonth, selectedMonth, handlePrevious, handleNext,
+}) => {
     const dispatch = useDispatch();
-    const currentMonth = new Date().getMonth();
-    const currentMonthName = monthNames[currentMonth];
+    const currentMonthName = MonthNames[selectedMonth];
     const activitiesSorted = activities && activities.sort((a, b) => new Date(a.date) - new Date(b.date));
     return (
         <Styled>
@@ -25,7 +23,7 @@ const ListOwnActivities = ({ activities }) => {
                         const date = new Date(activity.date);
                         const dayName = weekDays[(date.getDay())];
                         const dayNumber = date.getDate();
-                        const month = monthNames[date.getMonth()].toLowerCase();
+                        const month = MonthNames[date.getMonth()].toLowerCase();
                         return (
                             <>
                                 {month === currentMonthName.toLowerCase() && (
@@ -50,7 +48,12 @@ const ListOwnActivities = ({ activities }) => {
                     })}
                 </Col>
             </Row>
-            <Arrows />
+            <Arrows
+                selectedMonth={selectedMonth}
+                currentMonth={currentMonth}
+                handlePrevious={handlePrevious}
+                handleNext={handleNext}
+            />
         </Styled>
     )
 };

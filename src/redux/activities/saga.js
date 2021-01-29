@@ -57,7 +57,6 @@ function* getUserActivities({ payload }) {
 
 }
 
-
 function* getAllUsersActivities({ payload }) {
 
     try {
