@@ -7,7 +7,36 @@ import BIlogo from '../assets/img/Logo_BI.svg';
 import BicepsLogo from '../assets/img/Logo_Biceps.png';
 import HeartLogo from '../assets/img/Logo_ActiveHeart.svg';
 
+const FooterLinks = [
+    {
+        label: "Tilgjengelighet",
+        link: "https://www.boehringer-ingelheim.no/accessibility-statement"
+    },
+    {
+        label: "Brukervilkår",
+        link: "https://www.boehringer-ingelheim.no/terms-use"
+    },
+    {
+        label: "Privacy Policy",
+        link: "https://www.boehringer-ingelheim.no/privacy-policy"
+    },
+    {
+        label: "Privacy Policy Pharmacovigilance",
+        link: "https://www.boehringer-ingelheim.no/privacy-policy-pharmacovigilance"
+    },
+    {
+        label: "Privacy Policy Vendors, partners & Interested Persons",
+        link: "https://www.boehringer-ingelheim.no/privacy/vendors/privacy-policy-vendors-partners-interested-persons"
+    },
+    {
+        label: "Ansvarlig",
+        link: "https://www.boehringer-ingelheim.no/imprint"
+    },
+];
+
+
 const Footer = () => (
+    <>
     <Styled>
         <Container>
             <Row alignItems="center" className="footer-top">
@@ -30,17 +59,47 @@ const Footer = () => (
                     <img src={HeartLogo} alt="Active your heart Logo" />
                 </Col>
             </Row>
+            </Container>
+        </Styled>
+        <Container fluid>
+            <Row>
+                <Col>
+                    <FooterLinkStyled>
+                        <ul>
+                            {FooterLinks.map((menu) => <li><a href={menu.link}>{menu.label}</a></li>)}
+                        </ul>
+                    </FooterLinkStyled>
+                </Col>
+            </Row>
         </Container>
-    </Styled>
+    </>
 )
 
 export default Footer;
 
+const FooterLinkStyled = styled.div`
+    padding-top: 50px;
+    padding-bottom: 25px;
+    ul {
+        list-style: none;
+        text-align: center;
+        padding-inline-start: 0px;
+    }
+    li {
+        display: inline-block;
+        margin: 0px 10px;
+        margin-bottom: 5px;
+        a {
+            color: #233e6b;
+            font-size: 12px;
+        }
+    }
+`;
 
 const Styled = styled.div`
     max-width: 950px;
     margin: 0 auto;
-    padding: 50px 0px;
+    padding-top: 50px;
     @media only screen and (min-width: 1600px) {
         max-width: 1200px;
     }
