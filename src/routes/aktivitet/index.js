@@ -31,7 +31,6 @@ const Aktivitet = () => {
     let { team } = user;
     team = parseInt(team)
 
-
     return (
 
         <Layout>
@@ -136,6 +135,8 @@ const DataArtivitet = [
     'Riding',
     'Husarbeid',
     'Hagearbeid',
+    'Ski',
+    'Sykkel',
     'Annet',
 ];
 
@@ -156,4 +157,20 @@ const DataVerighet = [
         label: '60 min',
         poeng: 4
     },
+    {
+        label: '1t 15 min',
+        poeng: 5
+    },
+    {
+        label: '1t 30 min',
+        poeng: 6
+    },
+    {
+        label: '1t 45 min',
+        poeng: 7
+    },
+    {
+        label: '2t',
+        poeng: 8
+    }
 ];

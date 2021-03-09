@@ -14,19 +14,19 @@ const DataTeams = [
         name: 'Acitivitas & Festivitas',
         image: Team2,
         leader: 'Janni Eggerdink',
-        motto: 'Gi litt hver dag\n– for deg selv og for teamet!'
+        motto: '«Gi litt hver dag\n– for deg selv og for teamet!»'
     },
     {
         name: '71 grader BINOs',
         image: Team3,
         leader: 'Elisabeth Wike',
-        motto: 'Just do It'
+        motto: '«Just do It»'
     },
     {
         name: 'BINO Marines',
         image: Team4,
         leader: 'Svein Roseth',
-        motto: 'Born Ready'
+        motto: '«Born Ready»'
     },
 ]
 

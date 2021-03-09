@@ -66,7 +66,7 @@ const Footer = () => (
                 <Col>
                     <FooterLinkStyled>
                         <ul>
-                            {FooterLinks.map((menu) => <li><a href={menu.link}>{menu.label}</a></li>)}
+                            {FooterLinks.map((menu) => <li><a href={menu.link} target="_blank" rel="noopener noreferrer">{menu.label}</a></li>)}
                         </ul>
                     </FooterLinkStyled>
                 </Col>
@@ -90,7 +90,7 @@ const FooterLinkStyled = styled.div`
         margin: 0px 10px;
         margin-bottom: 5px;
         a {
-            color: #233e6b;
+            color: #444444;
             font-size: 12px;
         }
     }
