@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom'
 
-import { loginUser, changePassword } from '../../../redux/actions';
+import { changePassword } from '../../../redux/actions';
 import Button from '../../../components/Button';
 
 const Login = () => {
@@ -19,17 +19,17 @@ const Login = () => {
                     name="email"
                     type="email"
                     autoComplete="off"
-                    placeholder="Email"
+                    placeholder="E-post"
                     ref={register({ required: true })}
                     className={errors.email && 'input-error-field'}
                 />
                 {errors.email && <span className="input-error-text">Vennligst sjekk dette feltet</span>}
-                <span>Oppgi en gyldig e-mail-adresse</span>
+                <span>Oppgi en gyldig e-postadresse</span>
 
                 <Button type="submit">Tilbakestill</Button>
             </form>
 
-            <Link to={'/'} className="forgot-password">Tilbake til logg in</Link>
+            <Link to={'/'} className="forgot-password">Tilbake til logg inn</Link>
         </Styled>
     );
 }

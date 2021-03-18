@@ -33,7 +33,7 @@ const AddUser = () => {
                         <Col>
                             <h1>Add User</h1>
                             <form onSubmit={handleSubmit(onSubmit)} className="login-form">
-                                <label>Email</label>
+                                <label>E-post</label>
                                 <input
                                     name="email"
                                     type="email"

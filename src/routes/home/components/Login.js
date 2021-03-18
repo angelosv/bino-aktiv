@@ -19,12 +19,12 @@ const Login = () => {
                     name="email"
                     type="email"
                     autoComplete="off"
-                    placeholder="Email"
+                    placeholder="E-post"
                     ref={register({ required: true })}
                     className={errors.email && 'input-error-field'}
                 />
                 {errors.email && <span className="input-error-text">Vennligst sjekk dette feltet</span>}
-                <span>Oppgi en gyldig e-mail-adresse</span>
+                <span>Oppgi en gyldig e-postadresse</span>
                 <input
                     name="password"
                     type="password"

@@ -16,6 +16,12 @@ const Tips = () => (
                 </Row>
                 <Row>
                     <Col>
+                        <div className="tips-container">
+                            <h2>Her er noen nyttige linker og tips til web basert trening:</h2>
+                            <a href='https://work.headspace.com/login' target="_blank" rel="noopener noreferrer">Headspace for Work</a>
+                        </div>
+                    </Col>
+                    <Col>
                         {DataTips.map((data, index) => (
                             <div key={index} className="tips-container">
                                 {data.title && <h2>{data.title}</h2>}
@@ -31,7 +37,7 @@ const Tips = () => (
 
         </Styled>
     </Layout>
-)
+);
 
 export default Tips;
 
@@ -51,10 +57,6 @@ const Styled = styled.div`
 `
 
 const DataTips = [
-    {
-        title: 'Her er noen nyttige linker og tips til web basert trening:',
-        description: 'Tirsdags Tabata med Cecilie – se egen invitasjon i Outlook!',
-    },
     {
         title: 'Effektive tips til og om utetrening/styrke',
         links: [

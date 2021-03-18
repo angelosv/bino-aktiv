@@ -104,13 +104,13 @@ const Data = [
         image: Team3,
         leader: 'Elisabeth Wike',
         motto: '«Just do It»',
-        members: ["Asger Friis", "Mona Andersen", "Margrete Bjurstrøm", "Morten Clausen", "Torhild Goa", "Camilla Håvik", "Håvard Haugnes", "Arnt-Ove Hovden", "Rok Kosmina", "Ann Kristin Lillelien", "Heidi Holter", "Tanja Nordang", "Niki Line Ramsey", "Silke Berg-Fliss", "Christian Schinnes", "Ingvild F. Meyer"]
+        members: ["Asger Friis", "Mona Andersen", "Margrete Bjurstrøm", "Morten Clausen", "Torhild Goa", "Camilla Håvik", "Håvard Haugnes", "Arnt-Ove Hovden", "Rok Kosmina", "Ann Kristin Lillelien", "Heidi Holter", "Tanja Nordang", "Niki Line Ramsey", "Silke Berg-Fliss", "Christian Schinnes", "Ingvild F. Meyer", "Ida Schwensen"]
     },
     {
         name: 'BINO Marines',
         image: Team4,
         leader: 'Svein Roseth',
         motto: '«Born Ready»',
-        members: ["Irene Andersen", "Lise Berget", "Anne Christiansen", "Anne-Marit Ellingbø", "Linn Maiken Gresseth", "Ingeborg Hansen-Tangen", "Sverre Sølversen", "Gry Jørgensen", "Bjørn-Arne Larsen", "Jarle Lindheim", "Tore Ørjansen", "Henriette Sagerud", "Thomas Sjåvik", "Tracy Sveinhaug", "Tone Vik", "Inger-Marie Martinsen", "Beate Valsø"]
+        members: ["Irene Andersen", "Lise Berget", "Anne Christiansen", "Anne-Marit Ellingbø", "Linn Maiken Gresseth", "Ingeborg Hansen-Tangen", "Sverre Sølversen", "Gry Jørgensen", "Bjørn-Arne Larsen", "Jarle Lindheim", "Tore Ørjansen", "Henriette Sagerud", "Thomas Sjåvik", "Tracy Sveinhaug", "Tone Vik", "Inger-Marie Martinsen", "Beate Valsø", "Cathrine Olsen"]
     },
 ]
