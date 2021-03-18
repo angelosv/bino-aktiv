@@ -54,10 +54,9 @@ function* loginUserFirebase({ payload }) {
             const getUserdata = functions.httpsCallable('getUser');
             const userData = yield getUserdata();
             console.log(userData, 'ESTO ES USERDATA')
-
+            window.location.href = '/aktivitet';
             yield put(getUserDataSucces(userData))
             put(notifySucces('Velkommen!'))
-
         } catch (error) {
             console.log(error.message)
         }
@@ -142,7 +141,7 @@ function* logOutUserFirebase() {
     localStorage.removeItem('user_id');
     localStorage.removeItem('email');
     yield put(logOutUserSucces());
-
+    window.location.href = '/';
 }
 
 function* deleteUserFirebase({ payload }) {
