@@ -93,7 +93,7 @@ const Data = [
         members: ["Knut Robert Andersen", "Tove Bjerknes", "Phillip Claunch", "Anne-Lise Evensen", "Stein Erik Grøneng", "Hanne Hauge", "Ulf Munack", "Ine Jørgensen", "Marit Høiby", "Jorge Lizano", "Øystein Ness", "Merethe Off", "Tone Røneid", "Sissel Sandberg", "Alette Skifjeld", "Per Kristian Troppen", "Carl Samuelsen"],
     },
     {
-        name: 'Acitivitas & Festivitas',
+        name: 'Activitas & Festivitas',
         image: Team2,
         leader: 'Janni Eggerdink',
         motto: '«Gi litt hver dag\n– for deg selv og for teamet!»',

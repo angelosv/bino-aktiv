@@ -11,7 +11,7 @@ const DataTeams = [
         motto: '«Den som gir seg er en dritt»'
     },
     {
-        name: 'Acitivitas & Festivitas',
+        name: 'Activitas & Festivitas',
         image: Team2,
         leader: 'Janni Eggerdink',
         motto: '«Gi litt hver dag\n– for deg selv og for teamet!»'
