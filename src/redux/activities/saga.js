@@ -4,7 +4,7 @@ import {
     GET_ALL_USERS_ACTIVITIES_SUCCES,
     GET_USER_ACTIVITIES,
     GET_ALL_USERS_ACTIVITIES,
-    DELETE_ACTIVITY
+    DELETE_ACTIVITY,
 } from '../../constants/actionType';
 import { auth, functions } from '../../firebase';
 import {
@@ -92,12 +92,11 @@ function* deleteActivity({ payload }) {
     }
 }
 
-
 export default function* rooSaga() {
     yield all([
         takeEvery(ADD_ACTIVITY, addActivity),
         takeEvery(GET_USER_ACTIVITIES, getUserActivities),
         takeEvery(GET_ALL_USERS_ACTIVITIES, getAllUsersActivities),
-        takeEvery(DELETE_ACTIVITY, deleteActivity)
+        takeEvery(DELETE_ACTIVITY, deleteActivity),
     ]);
 }

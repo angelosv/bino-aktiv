@@ -209,3 +209,20 @@ exports.getUser = functions.https.onCall((data, context) => {
 
     return res
 })
+
+exports.getAllUsers = functions.https.onCall((data, context) => {
+
+    const users = db.collection("users");
+    const res = users.get()
+        .then((snapshot) => {
+            const data = snapshot.docs.map((doc) => ({
+                id: doc.id,
+                ...doc.data(),
+            }));
+            return data
+        })
+        .catch((error) => {
+            console.log(error, 'error')
+        })
+    return res
+})

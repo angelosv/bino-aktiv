@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'styled-bootstrap-grid';
+import GetUsers from "../../components/GetUsers";
 
 import Layout from '../../layout';
 
@@ -34,6 +35,8 @@ const Tips = () => (
                     </Col>
                 </Row>
             </Container>
+
+            <GetUsers />
 
         </Styled>
     </Layout>

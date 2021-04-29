@@ -44,7 +44,6 @@ export const getUserActivitiesError = () => ({
 export const getAllUsersActivities = (uid) => ({
     type: GET_ALL_USERS_ACTIVITIES,
     payload: { uid }
-
 })
 
 export const getAllUsersActivitiesSucces = (res) => ({
