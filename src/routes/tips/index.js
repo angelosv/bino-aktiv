@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Container, Row, Col } from 'styled-bootstrap-grid';
-import GetUsers from "../../components/GetUsers";
 
 import Layout from '../../layout';
 
@@ -36,7 +35,6 @@ const Tips = () => (
                 </Row>
             </Container>
 
-            <GetUsers />
 
         </Styled>
     </Layout>
@@ -52,7 +50,7 @@ const Styled = styled.div`
         margin-bottom: 5px;
     }
     a {
-        color: ${({theme}) => theme.secondaryColor};
+        color: ${({ theme }) => theme.secondaryColor};
         display: block;
         margin-bottom: 5px;
         word-wrap: break-word;

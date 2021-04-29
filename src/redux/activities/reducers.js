@@ -3,6 +3,7 @@ import {
     ADD_ACTIVITY_SUCCES,
     ADD_ACTIVITY_ERROR,
     GET_ALL_USERS,
+    GET_ALL_USERS_SUCCESS,
     GET_ALL_USERS_ACTIVITIES,
     GET_ALL_USERS_ACTIVITIES_ERROR,
     GET_ALL_USERS_ACTIVITIES_SUCCES,
@@ -27,10 +28,12 @@ export default (state = INIT_STATE, action) => {
             return { ...state, loading: false, error: false };
         case GET_ALL_USERS_ACTIVITIES:
             return { ...state, loading: true, error: false };
+        case GET_ALL_USERS_SUCCESS:
+            return { ...state, loading: true, error: false, };
         case GET_ALL_USERS:
-            return { ...state, loading: true, error: false };
+            return { ...state, loading: true, error: false, };
         case GET_ALL_USERS_ACTIVITIES_SUCCES:
-            return { ...state, loading: false, error: false, all: action.payload.data };
+            return { ...state, loading: false, error: false, all: action.payload.data.users };
         case GET_ALL_USERS_ACTIVITIES_ERROR:
             return { ...state, loading: false, error: false };
         case DELETE_ACTIVITY:
