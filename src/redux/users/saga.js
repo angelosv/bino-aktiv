@@ -7,11 +7,9 @@ import { getAllUsersError, getAllUsersSuccess } from '../../redux/users/actions'
 
 
 function* getAllUsers() {
-    console.log('entrando a saga users');
     try {
         const getAllUsers = functions.httpsCallable('getAllUsers');
         const res = yield getAllUsers()
-        console.log('respuesta users->', res)
         yield put(getAllUsersSuccess(res))
     } catch (error) {
         console.log(error)

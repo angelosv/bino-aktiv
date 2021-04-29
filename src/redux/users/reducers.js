@@ -14,7 +14,6 @@ export default (state = INIT_STATE, action) => {
 
             return { ...state, loading: true, error: false };
         case GET_ALL_USERS_SUCCESS:
-            console.log(action, 'respuesta dentro del reducr')
             return { ...state, loading: false, error: false, users: action.payload.data };
         case GET_ALL_USERS_ERROR:
             return { ...state, loading: false, error: false };
