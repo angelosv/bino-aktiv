@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import { Formik, Field, Form } from 'formik';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { registerLocale } from  "react-datepicker";
+import { registerLocale } from "react-datepicker";
 import nb from 'date-fns/locale/nb';
 
 import { addActivity, getUserData } from '../../redux/actions';
@@ -133,7 +133,7 @@ const DataArtivitet = [
     'Kettlebels',
     'Svømming',
     'Riding',
-    'Husarbeid',
+    'Høypuls',
     'Hagearbeid',
     'Ski',
     'Sykkel',

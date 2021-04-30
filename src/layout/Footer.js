@@ -37,28 +37,28 @@ const FooterLinks = [
 
 const Footer = () => (
     <>
-    <Styled>
-        <Container>
-            <Row alignItems="center" className="footer-top">
-                <Col xs="3" sm="3" md="1" className="sko-image">
-                    <img src={Sko} alt="Aktiv" />
-                </Col>
-                <Col xs="9" sm="9" md="11">
-                    <h3>Vær fysisk aktiv</h3>
-                    <p>Enhver form for fysisk aktivitet, selv husarbeid, hagearbeid og annen arbeidsrelatert fysisk aktivitet, kan gi helsegevinster og bedre livskvalitet! <br className="no-display-under-767"/>Begynn i det små og velg noe som du liker!</p>
-                </Col>
-            </Row>
-            <Row alignItems="center">
-                <Col xs="5" sm="5" md="7" xl="8" className="col-bi-logo">
-                    <img src={BIlogo} alt="BI Logo" />
-                </Col>
-                <Col xs="3" sm="3" md="2" xl="2" className="col-biceps-logo">
-                    <img src={BicepsLogo} alt="Biceps Logo" />
-                </Col>
-                <Col xs="4" sm="4" md="3" xl="2" className="col-heart-logo">
-                    <img src={HeartLogo} alt="Active your heart Logo" />
-                </Col>
-            </Row>
+        <Styled>
+            <Container>
+                <Row alignItems="center" className="footer-top">
+                    <Col xs="3" sm="3" md="1" className="sko-image">
+                        <img src={Sko} alt="Aktiv" />
+                    </Col>
+                    <Col xs="9" sm="9" md="11">
+                        <h3>Vær fysisk aktiv</h3>
+                        <p>Enhver form for fysisk aktivitet, selv husarbeid, hagearbeid og annen arbeidsrelatert fysisk aktivitet, kan gi helsegevinster og bedre livskvalitet! <br className="no-display-under-767" />Begynn i det små og velg noe som du liker!</p>
+                    </Col>
+                </Row>
+                <Row alignItems="center">
+                    <Col xs="5" sm="5" md="7" xl="8" className="col-bi-logo">
+                        <img src={BIlogo} alt="BI Logo" />
+                    </Col>
+                    <Col xs="3" sm="3" md="2" xl="2" className="col-biceps-logo">
+                        <img src={BicepsLogo} alt="Biceps Logo" />
+                    </Col>
+                    <Col xs="4" sm="4" md="3" xl="2" className="col-heart-logo">
+                        <img src={HeartLogo} alt="Active your heart Logo" />
+                    </Col>
+                </Row>
             </Container>
         </Styled>
         <Container fluid>
@@ -116,7 +116,7 @@ const Styled = styled.div`
             width: 100%;
         }
         h3 {
-            color: ${({theme}) => theme.primaryColor};
+            color: ${({ theme }) => theme.primaryColor};
             margin-bottom: 10px;
         }
         p {
