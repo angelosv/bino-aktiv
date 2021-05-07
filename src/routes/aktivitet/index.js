@@ -29,7 +29,10 @@ const Aktivitet = () => {
     const user = useSelector(state => state.auth.user);
     const loading = useSelector(state => state.activities.loading);
     let { team } = user;
-    team = parseInt(team)
+    team = parseInt(team);
+
+    const currentMonth = (new Date()).getMonth();
+    const selectedMonth = startDate.getMonth();
 
     return (
 
@@ -62,7 +65,11 @@ const Aktivitet = () => {
                                     form.date = startDate.toString();
                                     form.team = parseInt(team);
                                     form.duration = durationNumber;
-                                    dispatch(addActivity(form));
+                                    if (currentMonth === selectedMonth) {
+                                        dispatch(addActivity(form));
+                                    } else {
+                                        alert('Du kan ikke legge til en aktivitet for en avsluttet måned.');
+                                    }
                                 }}
                             >
                                 <Form>
