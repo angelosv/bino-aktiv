@@ -19,13 +19,13 @@ const Statistikk = () => {
     const dispatch = useDispatch();
 
     const currentMonth = (new Date()).getMonth();
-    // const currentMonth = (new Date("02-15-2021")).getMonth();
     const [selectedMonth, setSelectedMonth] = useState(currentMonth);
 
     useEffect(() => {
         dispatch(getAllUsersActivities());
         dispatch(getUserActivities());
-    }, [dispatch])
+    }, [dispatch]);
+
     const userActivities = useSelector(state => state.auth.useractivities);
     const AllUsersActivities = useSelector(state => state.activities);
     const loading = useSelector(state => state.activities.loading);
@@ -139,4 +139,4 @@ const Styled = styled.div`
             font-size: 18px;
         }
     }
-`
+`;

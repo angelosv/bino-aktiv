@@ -15,8 +15,8 @@ import nb from 'date-fns/locale/nb';
 import { addActivity, getUserData } from '../../redux/actions';
 import Layout from '../../layout';
 import Button from '../../components/Button';
-import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 registerLocale('nb', nb);
 
