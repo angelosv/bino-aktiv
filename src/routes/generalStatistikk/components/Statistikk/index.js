@@ -145,7 +145,7 @@ const Statistikk = () => {
                                         {' '}
                                         {val}
                                         {' ('}
-                                        {(val/TotalPointsMonth*100).toFixed(0)} %
+                                        {(val/result*100).toFixed(0)} %
                                         {')'}
                                     </div>
                                 )}
