@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { connect } from 'react-redux';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from 'react-loader-spinner'
+import moment from 'moment';
 
 import { Container, Row, Col } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
@@ -16,15 +17,14 @@ import { addActivity, getUserData } from '../../redux/actions';
 import Layout from '../../layout';
 import Button from '../../components/Button';
 import 'react-toastify/dist/ReactToastify.css';
-import { toast } from 'react-toastify';
 
 registerLocale('nb', nb);
 
 const Aktivitet = () => {
+    const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getUserData())
-    }, [])
-    const dispatch = useDispatch();
+    }, [dispatch]);
     const [startDate, setStartDate] = useState(new Date());
     const user = useSelector(state => state.auth.user);
     const loading = useSelector(state => state.activities.loading);
@@ -90,6 +90,9 @@ const Aktivitet = () => {
                                         }}
                                         dateFormat="d, MMMM"
                                         locale="nb"
+                                        filterDate = {(date) => {
+                                            return moment() < (moment(date).add(3, 'day'));
+                                        }}
                                     />
                                     <label>Varighet</label>
                                     <Field
