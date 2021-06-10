@@ -13,7 +13,8 @@ const Users = () => {
         dispatch(getAllUsers());
     }, [dispatch]);
 
-    const AllUsers = useSelector(state => state.users.users);
+    const AllUsersRaw = useSelector(state => state.users.users);
+    const AllUsers = AllUsersRaw && AllUsersRaw.filter(f => !f.isDeleted);
 
     if (loading) {
         return (

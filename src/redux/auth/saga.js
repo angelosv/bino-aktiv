@@ -108,7 +108,8 @@ function* reigisterUserFirebase(data) {
             name: name,
             surname: surname,
             gender: gender,
-            team: team
+            team: team,
+            isDeleted: false
         })
         console.log(userdata, 'USERDATA');
         localStorage.removeItem('user_id');

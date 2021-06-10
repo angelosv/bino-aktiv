@@ -111,6 +111,6 @@ const Data = [
         image: Team4,
         leader: 'Svein Roseth',
         motto: '«Born Ready»',
-        members: ["Irene Andersen", "Lise Berget", "Anne Christiansen", "Anne-Marit Ellingbø", "Linn Maiken Gresseth", "Ingeborg Hansen-Tangen", "Sverre Sølversen", "Gry Jørgensen", "Bjørn-Arne Larsen", "Jarle Lindheim", "Tore Ørjansen", "Henriette Sagerud", "Thomas Sjåvik", "Tracy Sveinhaug", "Tone Vik", "Inger-Marie Martinsen", "Beate Valsø", "Cathrine Olsen"]
+        members: ["Irene Andersen", "Lise Berget", "Anne-Marit Ellingbø", "Linn Maiken Gresseth", "Ingeborg Hansen-Tangen", "Sverre Sølversen", "Gry Jørgensen", "Bjørn-Arne Larsen", "Jarle Lindheim", "Tore Ørjansen", "Henriette Sagerud", "Thomas Sjåvik", "Tracy Sveinhaug", "Tone Vik", "Beate Valsø", "Cathrine Olsen", "Martine Bækkelund", "Christoffer Nedberg"]
     },
 ]

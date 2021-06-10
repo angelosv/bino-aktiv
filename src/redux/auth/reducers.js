@@ -90,7 +90,8 @@ export default (state = INIT_STATE, action) => {
                     surname: action.payload.data.surname,
                     team: action.payload.data.team,
                     gender: action.payload.data.gender,
-                    email: action.payload.data.email
+                    email: action.payload.data.email,
+                    isDeleted: (action.payload.data.isDeleted || false)
                 }
             }
         case CHANGE_PASSWORD:

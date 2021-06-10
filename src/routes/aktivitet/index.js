@@ -34,6 +34,10 @@ const Aktivitet = () => {
     const currentMonth = (new Date()).getMonth();
     const selectedMonth = startDate.getMonth();
 
+    if (user?.isDeleted) {
+        return <h1>Your user has been deleted</h1>
+    }
+
     return (
 
         <Layout>
