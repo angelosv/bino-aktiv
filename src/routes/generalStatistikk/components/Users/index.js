@@ -32,8 +32,8 @@ const Users = () => {
         <Container>
             <Row>
                 <Col xs="6" sm="6">
-                    <h2>Kompani Lorentzen</h2>
-                    {AllUsers && AllUsers.filter(f => f.team === "4").map((user) => (
+                    <h2>Lag 1</h2>
+                    {AllUsers && AllUsers.filter(f => f.team === "1").map((user) => (
                         user.name ? (
                             <p>{user.name} {user.surname}</p>
                         ) : (
@@ -42,7 +42,7 @@ const Users = () => {
                     ))}
                 </Col>
                 <Col xs="6" sm="6">
-                    <h2>Acitivitas & Festivitas</h2>
+                    <h2>Lag 2</h2>
                     {AllUsers && AllUsers.filter(f => f.team === "2").map((user) => (
                         user.name ? (
                             <p>{user.name} {user.surname}</p>
@@ -54,8 +54,8 @@ const Users = () => {
             </Row>
             <Row style={{ marginTop: 25 }}>
                 <Col xs="6" sm="6">
-                    <h2>71 grader BINOs</h2>
-                    {AllUsers && AllUsers.filter(f => f.team === "1").map((user) => (
+                    <h2>Lag 3</h2>
+                    {AllUsers && AllUsers.filter(f => f.team === "3").map((user) => (
                         user.name ? (
                             <p>{user.name} {user.surname}</p>
                         ) : (
@@ -64,8 +64,8 @@ const Users = () => {
                     ))}
                 </Col>
                 <Col xs="6" sm="6">
-                    <h2>BINO Marines</h2>
-                    {AllUsers && AllUsers.filter(f => f.team === "3").map((user) => (
+                    <h2>Lag 4</h2>
+                    {AllUsers && AllUsers.filter(f => f.team === "4").map((user) => (
                         user.name ? (
                             <p>{user.name} {user.surname}</p>
                         ) : (

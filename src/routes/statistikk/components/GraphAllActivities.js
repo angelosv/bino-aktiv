@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Row, Col } from 'styled-bootstrap-grid';
 
 import DataTeams from '../../../data/DataTeams';
+import DataTeamsNew from '../../../data/DataTeamsNew';
 import MonthNames from '../../../data/MonthNames';
 import Arrows from '../../../components/Arrows';
 import Star from "../../../assets/img/Ikon_stjerne.svg";
@@ -25,13 +26,13 @@ const GraphAllActivities = ({
         return activityMonth === selectedMonth;
     });
     activities && activitiesInCurrentMonth && activitiesInCurrentMonth.map((result) => {
-        if (result.team === 4) {
+        if (result.team === 1) {
             resultTeam1 += result.duration;
         } else if (result.team === 2) {
             resultTeam2 += result.duration;
-        } else if (result.team === 1) {
-            resultTeam3 += result.duration;
         } else if (result.team === 3) {
+            resultTeam3 += result.duration;
+        } else if (result.team === 4) {
             resultTeam4 += result.duration;
         }
     })
@@ -61,6 +62,8 @@ const GraphAllActivities = ({
     });
 
     const isCurrentSelected = currentMonth === selectedMonth;
+    const dateChangeTeams = new Date(2021, 7, 15).getMonth();
+    const TheTeams = dateChangeTeams <= selectedMonth ? DataTeamsNew : DataTeams;
 
     return (
         <StyledGraph>
@@ -79,7 +82,7 @@ const GraphAllActivities = ({
                                     </span>
                                     <span> </span>
                                     <span className="c-red">
-                                        {DataTeams[ResultsPositions[0].team-1].name}
+                                        {TheTeams[ResultsPositions[0].team-1].name}
                                     </span>
                                 </h3>
                                 <h4 className="c-red" style={{ fontSize: 24 }}>
@@ -107,8 +110,8 @@ const GraphAllActivities = ({
                                 </div>
                             )}
                             <div className={`team ${(index === 0 || index === 1) && 'team-mobile'}`}>
-                                <h3 className="c-red">{DataTeams[index].name}</h3>
-                                <img src={DataTeams[index].image} alt={DataTeams[index].name} />
+                                <h3 className="c-red">{TheTeams[index].name}</h3>
+                                {TheTeams[index].image !== '' && <img src={TheTeams[index].image} alt={TheTeams[index].name} />}
                             </div>
                         </Col>
                     )

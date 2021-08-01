@@ -4,6 +4,7 @@ import { Row, Col } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
 import { getAllUsersActivities } from '../../../../redux/actions';
 import DataTeams from '../../../../data/DataTeams';
+import DataTeamsNew from '../../../../data/DataTeamsNew';
 import MonthNames from '../../../../data/MonthNames';
 import Arrows from '../../../../components/Arrows';
 import Loader from 'react-loader-spinner';
@@ -54,13 +55,13 @@ const Statistikk = () => {
         return activityMonth === selectedMonth;
     });
     activitiesInCurrentMonth && activitiesInCurrentMonth.map((result) => {
-        if (result.team === 4) {
+        if (result.team === 1) {
             resultTeam1 += result.duration;
         } else if (result.team === 2) {
             resultTeam2 += result.duration;
-        } else if (result.team === 1) {
-            resultTeam3 += result.duration;
         } else if (result.team === 3) {
+            resultTeam3 += result.duration;
+        } else if (result.team === 4) {
             resultTeam4 += result.duration;
         }
     })
@@ -93,7 +94,7 @@ const Statistikk = () => {
         Object.fromEntries(DataActivities.map((activity) => [activity, 0] )),
     ];
 
-    const Teams = [4, 2, 1, 3];
+    const Teams = [1, 2, 3, 4];
     
     Teams.map((team, index) => (
         activitiesInCurrentMonth && activitiesInCurrentMonth.filter(m => m.team === (team)).map((activity) => {
@@ -105,6 +106,9 @@ const Statistikk = () => {
             })    
         })
     ));
+
+    const dateChangeTeams = new Date(2021, 7, 15).getMonth();
+    const TheTeams = dateChangeTeams <= selectedMonth ? DataTeamsNew : DataTeams;
     
     return (
         <Styled>
@@ -135,7 +139,7 @@ const Statistikk = () => {
                     return (
                         <Col key={index} xs="6" sm="6" md="3">
                             <div className={`team ${(index === 0 || index === 1) && 'team-mobile'}`}>
-                                <h3 className="c-red">{DataTeams[index].name}</h3>
+                                <h3 className="c-red">{TheTeams[index].name}</h3>
                             </div>
                             <span className="c-green team-points">{result} poeng</span>
                             <div className="team-activities">
