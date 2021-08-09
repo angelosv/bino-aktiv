@@ -61,9 +61,9 @@ const Styled = styled.div`
         text-align: center;
         margin-bottom: 50px;
         img {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
+            max-width: 100%;
+            height: 150px;
+            border-radius: 5px;
             object-fit: cover;
         }
         &-info {

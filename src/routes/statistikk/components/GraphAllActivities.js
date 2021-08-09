@@ -173,9 +173,9 @@ const StyledGraph = styled.div`
         }
         text-align: center;
         img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
+            max-width: 100%;
+            height: 75px;
+            border-radius: 5px;
             object-fit: cover;
             @media only screen and (max-width: 575px) {
                 width: 100px;
