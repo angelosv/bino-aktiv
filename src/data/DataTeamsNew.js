@@ -1,32 +1,32 @@
-import Team1 from '../assets/img/team1.jpg';
-import Team2 from '../assets/img/team2.jpg';
-import Team3 from '../assets/img/team3.jpg';
-import Team4 from '../assets/img/team4.jpg';
+import Team1 from '../assets/img/lag1.jpeg';
+import Team2 from '../assets/img/lag2.jpg';
+import Team3 from '../assets/img/lag3.jpg';
+import Team4 from '../assets/img/lag4.jpg';
 
 const DataTeamsNew = [
     {
-        name: 'Lag 1',
-        image: '',
+        name: 'Bootcamp BINO',
+        image: Team1,
         leader: 'Lise Anita Alstad',
-        motto: ''
+        motto: 'Start hardt, øk underveis'
     },
     {
-        name: 'Lag 2',
-        image: '',
+        name: 'Team Power',
+        image: Team2,
         leader: 'Christian Schinnes',
-        motto: ''
+        motto: 'Ikke stopp når du er sliten, stopp når du er ferdig'
     },
     {
-        name: 'Lag 3',
-        image: '',
+        name: 'Hubertus- die mannshcaft',
+        image: Team3,
         leader: 'Asger Friis',
-        motto: ''
+        motto: 'First hard work. Then champagne!'
     },
     {
-        name: 'Lag 4',
-        image: '',
+        name: 'De utvalgte',
+        image: Team4,
         leader: 'Svein Roseth',
-        motto: ''
+        motto: 'Tar en for laget!'
     },
 ]
 
