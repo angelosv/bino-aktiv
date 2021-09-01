@@ -6,7 +6,7 @@ import { deleteActivity } from '../../../redux/actions';
 import MonthNames from "../../../data/MonthNames";
 import Arrows from '../../../components/Arrows';
 
-const weekDays = ['Søndag', 'Mandag', 'Torsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'];
+const weekDays = ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'];
 
 const ListOwnActivities = ({
     activities, currentMonth, selectedMonth, handlePrevious, handleNext,
