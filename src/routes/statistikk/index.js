@@ -17,20 +17,19 @@ import ListOwnActivities from './components/ListOwnActivities';
 
 const Statistikk = () => {
     const dispatch = useDispatch();
-
     const currentMonth = (new Date()).getMonth();
     const [selectedMonth, setSelectedMonth] = useState(currentMonth);
-
-    useEffect(() => {
-        dispatch(getAllUsersActivities());
-        dispatch(getUserActivities());
-    }, [dispatch]);
-
     const userActivities = useSelector(state => state.auth.useractivities);
     const AllUsersActivities = useSelector(state => state.activities);
     const loading = useSelector(state => state.activities.loading);
+    useEffect(() => {
+        dispatch(getAllUsersActivities());
+        if (!userActivities) {
+            dispatch(getUserActivities());
+        }
+    }, [dispatch, userActivities]);
     let countPoints = 0;
-    userActivities && userActivities.map((activity) => countPoints = countPoints + activity.duration);
+    userActivities && [...userActivities].map((activity) => countPoints = countPoints + activity.duration);
     const handlePrevious = () => {
         setSelectedMonth(selectedMonth-1);
     }
@@ -63,6 +62,12 @@ const Statistikk = () => {
                     />
                     <Row className="dine-poeng">
                         <Col>
+                            <h3 className="c-red husk-5k">
+                                Husk Hjerteløpet5K 28.okt!
+                            </h3>
+                        </Col>
+                    
+                        <Col>
                             <span className="c-green">Dine poeng: </span>
                             <span className="c-red">{countPoints} poeng</span>
                             {!isCurrentSelected && (
@@ -73,11 +78,11 @@ const Statistikk = () => {
                     <Row className="dine-trening">
                         <Col>
                             <h3 className="c-green">Dine aktiviteter</h3>
-                            <GraphOwnTrening activities={userActivities && userActivities} />
+                            <GraphOwnTrening activities={userActivities && [...userActivities]} />
                         </Col>
                     </Row>
                     <ListOwnActivities
-                        activities={userActivities && userActivities}
+                        activities={userActivities && [...userActivities]}
                         selectedMonth={selectedMonth}
                         currentMonth={currentMonth}
                         handlePrevious={handlePrevious}
@@ -107,8 +112,12 @@ const Styled = styled.div`
         font-weight: 700;
     }
     .dine-poeng {
-        margin-top: 115px;
+        margin-top: 75px;
         margin-bottom: 25px;
+        .husk-5k {
+            font-size: 24px;
+            margin-bottom: 50px;
+        }
     }
     .dine-trening {
         h3 {

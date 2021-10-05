@@ -28,15 +28,19 @@ const ListOwnActivities = ({
                             <>
                                 {month === currentMonthName.toLowerCase() && (
                                     <Row className="trening-data">
-                                        <Col xs="4" sm="4" md="4">
-                                            <span>{dayName} {dayNumber}. {month}</span>
-                                        </Col>
-                                        <Col xs="3" sm="2" md="2">
-                                            <span>{activity.duration * 15} min</span>
-                                        </Col>
-                                        <Col xs="3" sm="3" md="3">
-                                            <span>{activity.type}</span>
-                                        </Col>
+                                            <Col xs="4" sm="4" md="4">
+                                                <span>{dayName} {dayNumber}. {month}</span>
+                                            </Col>
+                                            <Col xs="3" sm="2" md="2">
+                                                {activity.duration  === 10 ? (
+                                                    <span>5K</span>
+                                                ) : (
+                                                    <span>{activity.duration * 15} min</span>
+                                                )}
+                                            </Col>
+                                            <Col xs="3" sm="3" md="3">
+                                                <span>{activity.type}</span>
+                                            </Col>
                                         <Col xs="2" sm="3" md="3" onClick={() => dispatch(deleteActivity(activity.id))} style={{ textAlign: "right" }} >
                                             <span className="c-red remove-activity display-desktop">Slett aktivitet</span>
                                             <span className="c-red remove-activity display-mobile">Slett</span>
