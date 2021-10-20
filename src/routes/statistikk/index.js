@@ -24,10 +24,10 @@ const Statistikk = () => {
     const loading = useSelector(state => state.activities.loading);
     useEffect(() => {
         dispatch(getAllUsersActivities());
-        if (!userActivities) {
+        // if (!userActivities) {
             dispatch(getUserActivities());
-        }
-    }, [dispatch, userActivities]);
+        // }
+    }, [dispatch/*, userActivities*/]);
     let countPoints = 0;
     userActivities && [...userActivities].map((activity) => countPoints = countPoints + activity.duration);
     const handlePrevious = () => {

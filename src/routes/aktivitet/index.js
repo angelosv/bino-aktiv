@@ -24,6 +24,7 @@ registerLocale('nb', nb);
 const Aktivitet = () => {
     const dispatch = useDispatch();
     const [startDate, setStartDate] = useState(new Date());
+    const [race, setRace] = useState(false);
     const user = useSelector(state => state.auth.user);
     const userActivities = useSelector(state => state.auth.useractivities);
     const loading = useSelector(state => state.activities.loading);
@@ -33,12 +34,13 @@ const Aktivitet = () => {
     const currentMonth = (new Date()).getMonth();
     const selectedMonth = startDate.getMonth();
 
+
     useEffect(() => {
         dispatch(getUserData());
-        if (!userActivities) {
+        //if (!userActivities) {
             dispatch(getUserActivities());
-        }
-    }, [dispatch, userActivities]);
+        //}
+    }, [dispatch/*, userActivities*/]);
 
     if (user?.isDeleted) {
         return <h1>Your user has been deleted</h1>
@@ -74,12 +76,15 @@ const Aktivitet = () => {
                                         duration: 3,
                                     }}
                                     onSubmit={(form) => {
+                                        const isRace = form.type === 'Hjerteløpet5K (28 Okt)';
                                         const durationNumber = parseInt(form.duration);
                                         form.team = team;
-                                        form.date = form.type === "Hjerteløpet5K (28 Okt)" ? new Date(2021, 9, 28, 10, 0, 0, 0).toString() : startDate.toString();
+                                        form.date =  isRace ? new Date(2021, 9, 28, 10, 0, 0, 0).toString() : startDate.toString();
                                         form.team = parseInt(team);
-                                        form.duration = form.type === "Hjerteløpet5K (28 Okt)" ? 10 : durationNumber;
-                                        alert(JSON.stringify(form, null, 2));
+                                        form.duration = isRace ? 10 : durationNumber;
+                                        if (isRace) {
+                                            setRace(true);
+                                        }
                                         if (currentMonth === selectedMonth) {
                                             dispatch(addActivity(form));
                                         } else {
@@ -90,7 +95,7 @@ const Aktivitet = () => {
                                     {({ values }) => (
                                         <Form>
                                             <label>Aktivitet</label>
-                                            {hasRace ? (
+                                            {(hasRace || race) ? (
                                                 <Field
                                                     as="select"
                                                     name="type"
