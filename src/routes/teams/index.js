@@ -4,10 +4,10 @@ import { Container, Row, Col } from 'styled-bootstrap-grid';
 
 import Layout from '../../layout';
 
-import Team1 from '../../assets/img/lag1.jpeg';
-import Team2 from '../../assets/img/lag2.jpg';
-import Team3 from '../../assets/img/lag3.jpg';
-import Team4 from '../../assets/img/lag4.jpg';
+import Team1 from '../../assets/img/team1_2022.jpeg';
+import Team2 from '../../assets/img/team2_2022.png';
+import Team3 from '../../assets/img/team3_2022.jpeg';
+// import Team4 from '../../assets/img/lag4.jpg';
 
 const Teams = () => (
     <Layout>
@@ -86,31 +86,24 @@ const Styled = styled.div`
 
 const Data = [
     {
-        name: 'Bootcamp BINO',
+        name: 'The winning team',
         image: Team1,
-        leader: 'Lise Anita Alstad',
-        motto: '«Start hardt, øk underveis»',
-        members: ["Elisabeth Arnstad", "Tove Bjerknes", "Phillip Claunch", "Malena Grant-Falch", "Ann Kristin Halvorsen", "Arne Helvig", "Anne Hunstad", "Heidi Kristiansen", "Jorge Lizano", "Ulf Munack", "Tanja Nordang", "Anne Pernille Ofstad",  "Tone Røneid", "Kathrine Nordgård", "Sissel Sandberg", "Alette Skifjeld", "Irene Andersen"],
+        leader: 'Sissel Sandberg',
+        motto: '«In it to win it»',
+        members: ["Anita Lise Alstad", "Anne Hunstad", "Asger Friis", "Cecilie Lorentzen", "Gry Jørgensen", "Henriette Sagerud" ,"Ingvild Felling Meyer" ,"Jorge Lizano" ,"Marit Høiby" ,"Mona Andersen" ,"Sissel Sandberg" ,"Thomas Sjåvik"],
     },
     {
-        name: 'Team Power',
+        name: 'Fit for life',
         image: Team2,
-        leader: 'Christian Schinnes',
-        motto: '«Ikke stopp når du er sliten, stopp når du er ferdig»',
-        members: ["Per Kristian Troppen", "Martine Bækkelund", "Margrete Bjurstrøm", "Morten Clausen", "Anne-Lise Evensen",  "Linn Maiken Gresseth", "Ingeborg Hansen-Tangen", "Marit Høiby", "Gry Jørgensen", "Bjørn-Arne Larsen", "Cecilie Lorentzen", "Cathrine Olsen", "Svein Roseth", "Sverre Sølversen", "Beate Valsø", "Carl Samuelsen"],
+        leader: 'Ann Kristin Halvorsen',
+        motto: '«Vi pusher for livet»',
+        members: ["Ann Kristin Halvorsen", "Anne-Lise Evensen", "Camilla Håvik", "Elisabeth Arnstad", "Hanne Hauge", "Ida Schwensen", "Janni Eggerdink", "Malena Grant-Falch", "Martine Bækkelund", "Tone Vik", "Stein Erik Groengen", "Tore Ørjansen"],
     },
     {
-        name: 'Hubertus- die mannshcaft',
+        name: 'Darwin’s fittest Rockstars',
         image: Team3,
-        leader: 'Asger Friis',
-        motto: '«First hard work. Then champagne!»',
-        members: ["Knut Robert Andersen", "Annette Buer", "Janni Eggerdink", "Stein Erik Grøneng", "Hanne Hauge", "Heidi Holter", "Ine Jørgensen", "Ann Kristin Lillelien", "Frank Robert Lund", "Øystein Næss", "Tore Ørjansen", "Svein Persen", "Siri Sætersdal", "Ida Schwensen", "Marianne Sollie", "Elisabeth Wike", "Mona Andersen"],
-    },
-    {
-        name: 'De utvalgte',
-        image: Team4,
-        leader: 'Henriette Sagerud',
-        motto: '«Tar en for laget!»',
-        members: ["Lise Berget", "Anne-Marit Ellingbø", "Torhild Goa", "Camilla Håvik", "Håvard Haugnes", "Arnt-Ove Hovden", "Rok Kosmina", "Jarle Lindheim", "Ingvild Felling Meyer", "Christoffer Nedberg", "Merethe Off", "Niki Line Ramsey", "Thomas Sjåvik", "Tracy Sveinhaug", "Silke Berg-Fliss", "Tone Vik"]
-    },
+        leader: 'Rok Kosmina',
+        motto: '«It’s a long way to the top if you wanna rock&roll»',
+        members: ["Ann Kristin Lillelien", "Arnt-Ove Hovden", "Cathrine Olsen", "Elisabeth Wike", "Heidi Kristiansen", "Ine Jørgensen", "Jeanette Myhre", "Margrete Bjurstrøm", "Merethe Off", "Rok Kosmina", "Svein Roseth", "Ulf Munack" , "Morten Clausen"],
+    }
 ]

@@ -14,7 +14,7 @@ const Arrows = ({
                 <Col xs="6" sm="6" className="arrows-previous" noGutter>
                     <button
                         onClick={handlePrevious}
-                        disabled={selectedMonth === 0}
+                        disabled={selectedMonth === 4}
                     >
                         <BsChevronLeft />
                         <span>Forrige måned</span>
@@ -23,7 +23,7 @@ const Arrows = ({
                 <Col xs="6" sm="6" className="arrows-next" noGutter>
                     <button
                         onClick={handleNext}
-                        // disabled={selectedMonth === 11 || currentMonth === selectedMonth}
+                        disabled={selectedMonth === 11 || currentMonth === selectedMonth}
                     >
                         <span>Neste måned</span>
                         <BsChevronRight />

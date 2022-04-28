@@ -6,6 +6,7 @@ import Sko from '../assets/img/Ikon_sko.svg';
 import BIlogo from '../assets/img/Logo_BI.svg';
 import BicepsLogo from '../assets/img/Logo_Biceps.png';
 import HeartLogo from '../assets/img/Logo_ActiveHeart.svg';
+import RaceLogo from '../assets/img/Hjerteløpet-logo.png';
 
 const FooterLinks = [
     {
@@ -49,13 +50,16 @@ const Footer = () => (
                     </Col>
                 </Row>
                 <Row alignItems="center">
-                    <Col xs="5" sm="5" md="7" xl="8" className="col-bi-logo">
+                    <Col xs="4" sm="3" md="4" xl="6" className="col-bi-logo">
                         <img src={BIlogo} alt="BI Logo" />
                     </Col>
-                    <Col xs="3" sm="3" md="2" xl="2" className="col-biceps-logo">
+                    <Col xs="3" sm="3" md="3" xl="2" className="col-race-logo">
+                        <img src={RaceLogo} alt="Hjerteløpet Logo" />
+                    </Col>
+                    <Col xs="2" sm="3" md="2" xl="2" className="col-biceps-logo">
                         <img src={BicepsLogo} alt="Biceps Logo" />
                     </Col>
-                    <Col xs="4" sm="4" md="3" xl="2" className="col-heart-logo">
+                    <Col xs="3" sm="3" md="3" xl="2" className="col-heart-logo">
                         <img src={HeartLogo} alt="Active your heart Logo" />
                     </Col>
                 </Row>
@@ -130,6 +134,13 @@ const Styled = styled.div`
     .col-bi-logo {
         img {
             max-width: 200px;
+        }
+    }
+    .col-race-logo {
+        text-align: center;
+        img {
+            max-width: 100%;
+            margin: 0 auto;
         }
     }
     .col-biceps-logo {

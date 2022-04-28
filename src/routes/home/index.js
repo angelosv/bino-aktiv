@@ -11,6 +11,8 @@ import Login from './components/Login';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from 'react-loader-spinner'
 
+import RaceLogo from '../../assets/img/Hjerteløpet-logo.png';
+
 const Home = ({ history, state }) => {
     const loading = useSelector(state => state.auth.loading);
     // const authed = useSelector(state => state.auth.authId);
@@ -42,10 +44,14 @@ const Home = ({ history, state }) => {
                         </Col>
                     </Row>
                     <Row>
-                        {!uid ? <Col xs="12" sm="12" md="6" xl="5">
-                            <h1>Logg inn</h1>
-                            <Login />
-                        </Col> : ''}
+                        {!uid ? (
+                            <Col xs="12" sm="12" md="6" xl="5">
+                                <h1>Logg inn</h1>
+                                <Login />
+                            </Col>
+                        ): (
+                            <img class="race-logo-home" src={RaceLogo} alt="Hjerteløpet Logo" />
+                        )}
                     </Row>
                 </Container>
 
@@ -80,5 +86,10 @@ const Styled = styled.div`
     button {
         margin-top: 35px;
         margin-bottom: 25px;
+    }
+    .race-logo-home {
+        max-width: 250px;
+        margin-left: 15px;
+        margin-top: 100px;
     }
 `

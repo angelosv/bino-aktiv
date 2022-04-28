@@ -9,11 +9,18 @@ import Arrows from '../../../components/Arrows';
 const weekDays = ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'];
 
 const ListOwnActivities = ({
-    activities, currentMonth, selectedMonth, handlePrevious, handleNext,
+    activities,
+    currentMonth,
+    currentYear,
+    selectedMonth,
+    handlePrevious,
+    handleNext,
 }) => {
     const dispatch = useDispatch();
     const currentMonthName = MonthNames[selectedMonth];
-    const activitiesSorted = activities && activities.sort((a, b) => new Date(a.date) - new Date(b.date));
+    const activitiesSortedv0 = activities && activities.sort((a, b) => new Date(a.date) - new Date(b.date));
+    const activitiesSorted = activitiesSortedv0 && activitiesSortedv0.filter((activity) => (new Date(activity.date).getYear()) === currentYear);
+
     return (
         <Styled>
             <Row className="training-per-month">

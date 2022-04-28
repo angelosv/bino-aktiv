@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Row, Col } from 'styled-bootstrap-grid';
 
-import DataTeams from '../../../data/DataTeams';
-import DataTeamsNew from '../../../data/DataTeamsNew';
+// import DataTeams from '../../../data/DataTeams';
+// import DataTeamsNew from '../../../data/DataTeamsNew';
+import DataTeams2022 from '../../../data/DataTeams2022';
 import MonthNames from '../../../data/MonthNames';
 import Arrows from '../../../components/Arrows';
 import Star from "../../../assets/img/Ikon_stjerne.svg";
@@ -13,30 +14,41 @@ import Medal3 from "../../../assets/img/medal_3.svg";
 import Medal4 from "../../../assets/img/medal_4.svg";
 
 const GraphAllActivities = ({
-    activities, currentMonth, selectedMonth, handlePrevious, handleNext,
+    activities,
+    currentYear,
+    currentMonth,
+    selectedMonth,
+    handlePrevious,
+    handleNext,
 }) => {
 
     let resultTeam1 = 0;
     let resultTeam2 = 0;
     let resultTeam3 = 0;
-    let resultTeam4 = 0;
+    // let resultTeam4 = 0;
 
     const activitiesInCurrentMonth = activities && activities.filter((activity) => {
         const activityMonth = (new Date(activity.date)).getMonth();
         return activityMonth === selectedMonth;
     });
+
     activities && activitiesInCurrentMonth && activitiesInCurrentMonth.map((result) => {
-        if (result.team === 1) {
-            resultTeam1 += result.duration;
-        } else if (result.team === 2) {
-            resultTeam2 += result.duration;
-        } else if (result.team === 3) {
-            resultTeam3 += result.duration;
-        } else if (result.team === 4) {
-            resultTeam4 += result.duration;
+        // const dateNumber = (new Date(result.date)).getDate();
+        // const isUnder15 = dateNumber < 15;
+        if (currentYear === (new Date(result.date)).getYear()) {
+            if (result.team === 1) {
+                resultTeam1 += result.duration;
+            } else if (result.team === 2) {
+                resultTeam2 += result.duration;
+            } else if (result.team === 3) {
+                resultTeam3 += result.duration;
+            } /*else if (result.team === 4) {
+                resultTeam4 += result.duration;
+            }*/
         }
     })
-    const Results = [ resultTeam1, resultTeam2, resultTeam3, resultTeam4];
+
+    const Results = [ resultTeam1, resultTeam2, resultTeam3, /*resultTeam4*/];
     const maxHeight = 200;
     const maxResult = Results && Math.max(...Results);
     const ResultsPositions = [
@@ -51,19 +63,20 @@ const GraphAllActivities = ({
         {
             team: 3,
             result: resultTeam3,
-        },
+        }/*,
         {
             team: 4,
             result: resultTeam4,
-        }
+        }*/
     ];
     ResultsPositions.sort(function(a, b) {
         return b.result - a.result;
     });
 
     const isCurrentSelected = currentMonth === selectedMonth;
-    const dateChangeTeams = new Date(2021, 7, 15).getMonth();
-    const TheTeams = dateChangeTeams <= selectedMonth ? DataTeamsNew : DataTeams;
+    // const dateChangeTeams = new Date(2021, 7, 15).getMonth();
+    // const TheTeams = dateChangeTeams <= selectedMonth ? DataTeamsNew : DataTeams;
+    const TheTeams = DataTeams2022;
 
     return (
         <StyledGraph>
@@ -97,7 +110,7 @@ const GraphAllActivities = ({
                 {activities && Results && Results.map((result, index) => {
                     const pos = ResultsPositions.map(function(e) { return e.team; }).indexOf(index+1);
                     return (
-                        <Col key={index} xs="6" sm="6" md="3">
+                        <Col key={index} xs="6" sm="6" md="4">
                             <span className="c-green">{result} poeng</span>
                             <ColumnBar poeng={result * maxHeight / maxResult} />
                             {!isCurrentSelected && (

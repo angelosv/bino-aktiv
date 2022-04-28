@@ -17,7 +17,10 @@ import ListOwnActivities from './components/ListOwnActivities';
 
 const Statistikk = () => {
     const dispatch = useDispatch();
-    const currentMonth = (new Date()).getMonth();
+    const actualMonth = (new Date()).getMonth();
+    // const actualMonth = 9;
+    const currentMonth = (actualMonth <= 4) ? 4 : (actualMonth >= 9 ? 9 : 8);
+    const currentYear = (new Date()).getYear();
     const [selectedMonth, setSelectedMonth] = useState(currentMonth);
     const userActivities = useSelector(state => state.auth.useractivities);
     const AllUsersActivities = useSelector(state => state.activities);
@@ -29,12 +32,24 @@ const Statistikk = () => {
         // }
     }, [dispatch/*, userActivities*/]);
     let countPoints = 0;
-    userActivities && [...userActivities].map((activity) => countPoints = countPoints + activity.duration);
+    userActivities && [...userActivities].map((activity) => ((new Date(activity.date)).getYear()) === currentYear && (countPoints = countPoints + activity.duration));
     const handlePrevious = () => {
-        setSelectedMonth(selectedMonth-1);
+        if (selectedMonth <= 8) {
+            setSelectedMonth(4);
+        } else if (selectedMonth === 9) {
+            setSelectedMonth(8);
+        } else {
+            setSelectedMonth(9);
+        }
     }
     const handleNext = () => {
-        setSelectedMonth(selectedMonth+1);
+        if (selectedMonth <= 3) {
+            setSelectedMonth(4);
+        } else if (selectedMonth >=8) {
+            setSelectedMonth(9);
+        } else {
+            setSelectedMonth(8);
+        }
     }
     const isCurrentSelected = currentMonth === selectedMonth;
     return (
@@ -56,6 +71,7 @@ const Statistikk = () => {
                     <GraphAllActivities
                         activities={AllUsersActivities && AllUsersActivities.all}
                         currentMonth={currentMonth}
+                        currentYear={currentYear}
                         selectedMonth={selectedMonth}
                         handlePrevious={handlePrevious}
                         handleNext={handleNext}
@@ -63,7 +79,7 @@ const Statistikk = () => {
                     <Row className="dine-poeng">
                         <Col>
                             <h3 className="c-red husk-5k">
-                                Husk Hjerteløpet5K 28.okt!
+                                Husk Hjerteløpet5K 27.okt!
                             </h3>
                         </Col>
                     
@@ -78,12 +94,16 @@ const Statistikk = () => {
                     <Row className="dine-trening">
                         <Col>
                             <h3 className="c-green">Dine aktiviteter</h3>
-                            <GraphOwnTrening activities={userActivities && [...userActivities]} />
+                            <GraphOwnTrening
+                                currentYear={currentYear}
+                                activities={userActivities && [...userActivities]}
+                            />
                         </Col>
                     </Row>
                     <ListOwnActivities
                         activities={userActivities && [...userActivities]}
                         selectedMonth={selectedMonth}
+                        currentYear={currentYear}
                         currentMonth={currentMonth}
                         handlePrevious={handlePrevious}
                         handleNext={handleNext}

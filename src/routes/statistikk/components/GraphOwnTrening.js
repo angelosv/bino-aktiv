@@ -17,7 +17,7 @@ function getWeekNumber(d) {
     return weekNo;
 }
 
-const TreningGraph = ({ activities }) => {
+const GraphOwnTrening = ({ activities, currentYear }) => {
     
     const last10Week = [];
     const currenWeek = getWeekNumber(new Date());
@@ -36,8 +36,10 @@ const TreningGraph = ({ activities }) => {
     }
     
     activities && activities.map((activity) => {
-        const findWeek = getWeekNumber(new Date(activity.date));
-        resultsByWeek[findWeek] += 1
+        if (currentYear === (new Date(activity.date)).getYear()) {
+            const findWeek = getWeekNumber(new Date(activity.date));
+            resultsByWeek[findWeek] += 1
+        }
     })
 
     const maxResult = Math.max(...resultsByWeek);
@@ -72,7 +74,7 @@ const TreningGraph = ({ activities }) => {
     )
 }
 
-export default TreningGraph;
+export default GraphOwnTrening;
 
 const StyledGraph = styled.div`
     .trening-column {

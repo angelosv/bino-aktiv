@@ -46,7 +46,7 @@ const Aktivitet = () => {
         return <h1>Your user has been deleted</h1>
     }
 
-    const hasRace = userActivities && [...userActivities].some((item) => item.duration === 10);
+    const hasRace = userActivities && [...userActivities].some((item) => item.duration === 10 && (new Date(item.date)).getYear() === 2022);
 
     return (
 
@@ -76,10 +76,10 @@ const Aktivitet = () => {
                                         duration: 3,
                                     }}
                                     onSubmit={(form) => {
-                                        const isRace = form.type === 'Hjerteløpet5K (28 Okt)';
+                                        const isRace = form.type === 'Hjerteløpet5K (27 Okt)';
                                         const durationNumber = parseInt(form.duration);
                                         form.team = team;
-                                        form.date =  isRace ? new Date(2021, 9, 28, 10, 0, 0, 0).toString() : startDate.toString();
+                                        form.date =  isRace ? new Date(2022, 9, 27, 10, 0, 0, 0).toString() : startDate.toString();
                                         form.team = parseInt(team);
                                         form.duration = isRace ? 10 : durationNumber;
                                         if (isRace) {
@@ -90,6 +90,7 @@ const Aktivitet = () => {
                                         } else {
                                             alert('Du kan ikke legge til en aktivitet for en avsluttet måned.');
                                         }
+
                                     }}
                                 >
                                     {({ values }) => (
@@ -114,9 +115,9 @@ const Aktivitet = () => {
                                                             <option key={index} value={data}>{data}</option>
                                                         )}
                                                     </Field>
-                                                    <h3 className="c-red husk-5k">
-                                                        Husk Hjerteløpet5K 28.okt!
-                                                    </h3>
+                                                    {/*<h3 className="c-red husk-5k">
+                                                        Husk Hjerteløpet5K 27.okt!
+                                                    </h3>*/}
                                                 </>
                                             )}
                                             <label>Dato</label>
@@ -198,7 +199,7 @@ const Styled = styled.div`
 `;
 
 const DataArtivitetRace = [
-    'Hjerteløpet5K (28 Okt)',
+    // 'Hjerteløpet5K (27 Okt)',
     'Løpetur',
     'Gåtur',
     'Styrkeøkt',
@@ -212,6 +213,7 @@ const DataArtivitetRace = [
     'Hagearbeid',
     'Ski',
     'Sykkel',
+    'Tennis',
     'Annet',
 ];
 
@@ -229,6 +231,7 @@ const DataArtivitet = [
     'Hagearbeid',
     'Ski',
     'Sykkel',
+    'Tennis',
     'Annet',
 ];
 
