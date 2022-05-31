@@ -145,7 +145,7 @@ const Statistikk = () => {
                         Object.entries(TeamResultsByActivity[index]).sort(([,a],[,b]) => b-a)
                     ); 
                     return (
-                        <Col key={index} xs="6" sm="6" md="3">
+                        <Col key={index} xs="6" sm="6" md="4">
                             <div className={`team ${(index === 0 || index === 1) && 'team-mobile'}`}>
                                 <h3 className="c-red">{TheTeams[index].name}</h3>
                             </div>
