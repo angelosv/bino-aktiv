@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col } from 'styled-bootstrap-grid';
 import styled from 'styled-components';
 import { getAllUsersActivities } from '../../../../redux/actions';
-import DataTeams from '../../../../data/DataTeams';
-import DataTeamsNew from '../../../../data/DataTeamsNew';
+//import DataTeams from '../../../../data/DataTeams';
+//import DataTeamsNew from '../../../../data/DataTeamsNew';
+import DataTeams2022 from '../../../../data/DataTeams2022';
 import MonthNames from '../../../../data/MonthNames';
 import Arrows from '../../../../components/Arrows';
 import Loader from 'react-loader-spinner';
@@ -15,6 +16,7 @@ const Statistikk = () => {
     const dispatch = useDispatch();
 
     const currentMonth = (new Date()).getMonth();
+    const currentYear = (new Date()).getYear();
     const [selectedMonth, setSelectedMonth] = useState(currentMonth);
 
     useEffect(() => {
@@ -48,27 +50,29 @@ const Statistikk = () => {
     let resultTeam1 = 0;
     let resultTeam2 = 0;
     let resultTeam3 = 0;
-    let resultTeam4 = 0;
+    //let resultTeam4 = 0;
 
     const activitiesInCurrentMonth = activities && activities.filter((activity) => {
         const activityMonth = (new Date(activity.date)).getMonth();
         return activityMonth === selectedMonth;
     });
     activitiesInCurrentMonth && activitiesInCurrentMonth.map((result) => {
-        if (result.team === 1) {
-            resultTeam1 += result.duration;
-        } else if (result.team === 2) {
-            resultTeam2 += result.duration;
-        } else if (result.team === 3) {
-            resultTeam3 += result.duration;
-        } else if (result.team === 4) {
-            resultTeam4 += result.duration;
+        if (currentYear === (new Date(result.date)).getYear()) {
+            if (result.team === 1) {
+                resultTeam1 += result.duration;
+            } else if (result.team === 2) {
+                resultTeam2 += result.duration;
+            } else if (result.team === 3) {
+                resultTeam3 += result.duration;
+            } /*else if (result.team === 4) {
+                resultTeam4 += result.duration;
+            }*/
         }
     })
 
-    const Results = [ resultTeam1, resultTeam2, resultTeam3, resultTeam4];
+    const Results = [ resultTeam1, resultTeam2, resultTeam3, /*resultTeam4*/];
 
-    const TotalPointsMonth = resultTeam1 + resultTeam2 + resultTeam3 + resultTeam4;
+    const TotalPointsMonth = resultTeam1 + resultTeam2 + resultTeam3 /*+ resultTeam4*/;
 
 
     const TotalResultsByActivity = Object.fromEntries(DataActivities.map((activity) => [activity, 0] ));
@@ -77,7 +81,9 @@ const Statistikk = () => {
         DataActivities.map((dataActivity) => {
             if (dataActivity === activity.type) {
                 const currentCount = TotalResultsByActivity[dataActivity];
-                TotalResultsByActivity[dataActivity] = currentCount + activity.duration;
+                if (currentYear === (new Date(activity.date)).getYear()) {
+                    TotalResultsByActivity[dataActivity] = currentCount + activity.duration;
+                }
             }
         })    
     });
@@ -86,7 +92,6 @@ const Statistikk = () => {
         Object.entries(TotalResultsByActivity).sort(([,a],[,b]) => b-a)
     );
     
-
     const TeamResultsByActivity = [
         Object.fromEntries(DataActivities.map((activity) => [activity, 0] )),
         Object.fromEntries(DataActivities.map((activity) => [activity, 0] )),
@@ -94,22 +99,25 @@ const Statistikk = () => {
         Object.fromEntries(DataActivities.map((activity) => [activity, 0] )),
     ];
 
-    const Teams = [1, 2, 3, 4];
+    const Teams = [1, 2, 3/*, 4*/];
     
     Teams.map((team, index) => (
         activitiesInCurrentMonth && activitiesInCurrentMonth.filter(m => m.team === (team)).map((activity) => {
             DataActivities.map((dataActivity) => {
                 if (dataActivity === activity.type) {
                     const currentCount = TeamResultsByActivity[index][dataActivity];
-                    TeamResultsByActivity[index][dataActivity] = currentCount + activity.duration;
+                    if (currentYear === (new Date(activity.date)).getYear()) {
+                        TeamResultsByActivity[index][dataActivity] = currentCount + activity.duration;
+                    }
                 }
             })    
         })
     ));
 
-    const dateChangeTeams = new Date(2021, 7, 15).getMonth();
-    const TheTeams = dateChangeTeams <= selectedMonth ? DataTeamsNew : DataTeams;
-    
+    //const dateChangeTeams = new Date(2021, 7, 15).getMonth();
+    //const TheTeams = dateChangeTeams <= selectedMonth ? DataTeamsNew : DataTeams;
+    const TheTeams = DataTeams2022;
+
     return (
         <Styled>
             <Row className="total-points">

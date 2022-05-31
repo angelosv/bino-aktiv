@@ -21,7 +21,7 @@ const GraphAllActivities = ({
     handlePrevious,
     handleNext,
 }) => {
-
+ 
     let resultTeam1 = 0;
     let resultTeam2 = 0;
     let resultTeam3 = 0;

@@ -14,6 +14,7 @@ const DataActivities = [
     'Sykkel',
     'Annet',
     'Husarbeid',
+    'Tennis'
 ];
 
 export default DataActivities;

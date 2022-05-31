@@ -88,7 +88,7 @@ const Styled = styled.div`
         margin-bottom: 25px;
     }
     .race-logo-home {
-        max-width: 250px;
+        max-width: 200px;
         margin-left: 15px;
         margin-top: 100px;
     }
