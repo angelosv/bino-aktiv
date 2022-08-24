@@ -90,7 +90,7 @@ const Data = [
         image: Team1,
         leader: 'Sissel Sandberg',
         motto: '«In it to win it»',
-        members: ["Anita Lise Alstad", "Anne Hunstad", "Asger Friis", "Cecilie Lorentzen", "Gry Jørgensen", "Henriette Sagerud" ,"Ingvild Felling Meyer" ,"Jorge Lizano" ,"Marit Høiby" ,"Mona Andersen" ,"Sissel Sandberg" ,"Thomas Sjåvik", "Tove Bjerknes", "Kulsoom Javaid"],
+        members: ["Anita Lise Alstad", "Anne Hunstad", "Asger Friis", "Cecilie Lorentzen", "Gry Jørgensen", "Henriette Sagerud" ,"Ingvild Felling Meyer" ,"Jorge Lizano" ,"Marit Høiby" ,"Mona Andersen" ,"Sissel Sandberg" ,"Thomas Sjåvik", "Tove Bjerknes"],
     },
     {
         name: 'Fit for life',
@@ -104,6 +104,6 @@ const Data = [
         image: Team3,
         leader: 'Rok Kosmina',
         motto: '«It’s a long way to the top if you wanna rock&roll»',
-        members: ["Ann Kristin Lillelien", "Arnt-Ove Hovden", "Cathrine Olsen", "Heidi Kristiansen", "Ine Jørgensen", "Jeanette Myhre", "Margrete Bjurstrøm", "Merethe Off", "Rok Kosmina", "Svein Roseth", "Beate Valsøe", "David Bleich"],
+        members: ["Ann Kristin Lillelien", "Arnt-Ove Hovden", "Cathrine Olsen", "Heidi Kristiansen", "Ine Jørgensen", "Jeanette Myhre", "Margrete Bjurstrøm", "Merethe Off", "Rok Kosmina", "Svein Roseth", "Beate Valsøe", "David Bleich", "Kulsoom Javaid"],
     }
 ]
