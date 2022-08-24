@@ -90,20 +90,20 @@ const Data = [
         image: Team1,
         leader: 'Sissel Sandberg',
         motto: '«In it to win it»',
-        members: ["Anita Lise Alstad", "Anne Hunstad", "Asger Friis", "Cecilie Lorentzen", "Gry Jørgensen", "Henriette Sagerud" ,"Ingvild Felling Meyer" ,"Jorge Lizano" ,"Marit Høiby" ,"Mona Andersen" ,"Sissel Sandberg" ,"Thomas Sjåvik"],
+        members: ["Anita Lise Alstad", "Anne Hunstad", "Asger Friis", "Cecilie Lorentzen", "Gry Jørgensen", "Henriette Sagerud" ,"Ingvild Felling Meyer" ,"Jorge Lizano" ,"Marit Høiby" ,"Mona Andersen" ,"Sissel Sandberg" ,"Thomas Sjåvik", "Tove Bjerknes", "Kulsoom Javaid"],
     },
     {
         name: 'Fit for life',
         image: Team2,
         leader: 'Ann Kristin Halvorsen',
         motto: '«Vi pusher for livet»',
-        members: ["Ann Kristin Halvorsen", "Anne-Lise Evensen", "Camilla Håvik", "Elisabeth Arnstad", "Hanne Hauge", "Ida Schwensen", "Janni Eggerdink", "Malena Grant-Falch", "Martine Bækkelund", "Tone Vik", "Stein Erik Groengen", "Tore Ørjansen"],
+        members: ["Ann Kristin Halvorsen", "Anne-Lise Evensen", "Camilla Håvik", "Elisabeth Arnstad", "Hanne Hauge", "Ida Schwensen", "Janni Eggerdink", "Malena Grant-Falch", "Martine Bækkelund", "Tone Vik", "Stein Erik Groengen", "Tore Ørjansen", "Helena Mikaelsen"],
     },
     {
         name: 'Darwin’s fittest Rockstars',
         image: Team3,
         leader: 'Rok Kosmina',
         motto: '«It’s a long way to the top if you wanna rock&roll»',
-        members: ["Ann Kristin Lillelien", "Arnt-Ove Hovden", "Cathrine Olsen", "Elisabeth Wike", "Heidi Kristiansen", "Ine Jørgensen", "Jeanette Myhre", "Margrete Bjurstrøm", "Merethe Off", "Rok Kosmina", "Svein Roseth", "Ulf Munack" , "Morten Clausen"],
+        members: ["Ann Kristin Lillelien", "Arnt-Ove Hovden", "Cathrine Olsen", "Heidi Kristiansen", "Ine Jørgensen", "Jeanette Myhre", "Margrete Bjurstrøm", "Merethe Off", "Rok Kosmina", "Svein Roseth", "Beate Valsøe", "David Bleich"],
     }
 ]
