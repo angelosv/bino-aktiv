@@ -121,7 +121,7 @@ const Aktivitet = () => {
                                                 </>
                                             )}
                                             <label>Dato</label>
-                                            {values.type === "Hjerteløpet5K (28 Okt)" ? (
+                                            {values.type === "Hjerteløpet5K (27 Okt)" ? (
                                                 <DatePicker
                                                     selected={new Date('2021-10-28')}
                                                     disabled

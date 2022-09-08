@@ -97,7 +97,7 @@ const Data = [
         image: Team2,
         leader: 'Ann Kristin Halvorsen',
         motto: '«Vi pusher for livet»',
-        members: ["Ann Kristin Halvorsen", "Anne-Lise Evensen", "Camilla Håvik", "Elisabeth Arnstad", "Hanne Hauge", "Ida Schwensen", "Janni Eggerdink", "Malena Grant-Falch", "Martine Bækkelund", "Tone Vik", "Stein Erik Groengen", "Tore Ørjansen", "Helena Mikaelsen"],
+        members: ["Ann Kristin Halvorsen", "Anne-Lise Evensen", "Camilla Haavik", "Elisabeth Arnstad", "Hanne Hauge", "Ida Schwensen", "Janni Eggerdink", "Malena Grant-Falch", "Martine Bækkelund", "Tone Vik", "Stein Erik Grøneng", "Tore Ørjansen", "Helena Mikaelsen"],
     },
     {
         name: 'Darwin’s fittest Rockstars',
